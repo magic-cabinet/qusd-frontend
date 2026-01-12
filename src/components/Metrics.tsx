@@ -62,12 +62,12 @@ export default function Metrics() {
 
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
-              <h2 className="font-['Space_Mono'] text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+              <h2 className="font-['Orbitron'] text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
                 Network
                 <br />
                 <span className="relative inline-block">
                   Statistics
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] rounded-full" />
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#0052CC] rounded-full" />
                 </span>
               </h2>
             </div>
@@ -87,8 +87,6 @@ export default function Metrics() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group bg-[#111111] p-6 sm:p-8 rounded-2xl border border-[#262626] hover:border-[#0ECCED]/30 hover:shadow-lg hover:shadow-[#0ECCED]/10 transition-all relative overflow-hidden"
             >
-              {/* Elliptical glow on hover */}
-              <div className="absolute -top-16 -right-16 w-32 h-32 rounded-full bg-gradient-to-br from-[#0ECCED]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
 
               {/* Code badge */}
               <div className="flex items-center justify-between mb-6 relative">

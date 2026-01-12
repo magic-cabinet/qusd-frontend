@@ -35,7 +35,7 @@ export default function Hero() {
       {/* Dot pattern background */}
       <div className="absolute inset-0 dot-pattern-light" />
 
-      {/* Elliptical gradient blurs */}
+      {/* Elliptical blurs */}
       <div className="glow-ellipse glow-cyan w-[600px] h-[400px] -top-40 -right-40 animate-float-slow opacity-30" />
       <div className="glow-ellipse glow-blue w-[500px] h-[300px] bottom-20 -left-40 animate-float-reverse opacity-20" />
       <div className="glow-ellipse glow-cyan w-[300px] h-[200px] top-1/3 right-1/4 animate-float opacity-15" />
@@ -70,7 +70,7 @@ export default function Hero() {
             className="mb-6 sm:mb-8"
           >
             <div className="inline-flex items-center gap-3 px-4 py-2 border border-[#e5e5e5] bg-white/80 backdrop-blur-sm rounded-full">
-              <div className="w-2 h-2 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] rounded-full" />
+              <div className="w-2 h-2 bg-[#0052CC] rounded-full" />
               <span className="annotation">X402 Payment Protocol</span>
               <span className="annotation text-[#a3a3a3]">|</span>
               <span className="annotation">ERC-20</span>
@@ -83,7 +83,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h1 className="font-['Space_Mono'] text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#0a0a0a] leading-[0.9] tracking-tight">
+            <h1 className="font-['Orbitron'] text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#0a0a0a] leading-[0.9]">
               <span className="text-[#a3a3a3] font-normal">The</span>
               <br />
               Machine
@@ -91,7 +91,7 @@ export default function Hero() {
               <span className="relative inline-block">
                 Economy
                 <motion.span
-                  className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] rounded-full"
+                  className="absolute -bottom-2 left-0 h-1 bg-[#0052CC] rounded-full"
                   initial={{ width: 0 }}
                   animate={{ width: '100%' }}
                   transition={{ duration: 0.8, delay: 1 }}

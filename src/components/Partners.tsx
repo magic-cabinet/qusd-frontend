@@ -69,12 +69,12 @@ export default function Partners() {
           </div>
 
           <div className="max-w-2xl">
-            <h2 className="font-['Space_Mono'] text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a0a0a] leading-tight mb-4">
+            <h2 className="font-['Orbitron'] text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a0a0a] leading-tight mb-4">
               Ecosystem &
               <br />
               <span className="relative inline-block">
                 Partners
-                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] rounded-full" />
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#0052CC] rounded-full" />
               </span>
             </h2>
             <p className="text-[#737373] mt-4">
@@ -93,8 +93,6 @@ export default function Partners() {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group bg-white p-6 rounded-2xl border border-[#e5e5e5] hover:border-[#0ECCED]/30 hover:shadow-lg hover:shadow-[#0ECCED]/5 transition-all relative overflow-hidden"
             >
-              {/* Elliptical glow on hover */}
-              <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#0ECCED]/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
 
               {/* Partner content */}
               <div className="flex flex-col items-center text-center relative">

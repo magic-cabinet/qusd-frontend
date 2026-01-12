@@ -29,17 +29,7 @@ export function ThemePreview({ theme }: ThemePreviewProps) {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div
-            style={{
-              width: '32px',
-              height: '32px',
-              borderRadius: '8px',
-              background: colors.gradient,
-            }}
-          />
-          <span style={{ fontFamily: typography.headingFont, fontWeight: 700, fontSize: '18px' }}>
-            QUSD
-          </span>
+          <img src={theme.logos.dark} alt="QUSD" style={{ height: '32px' }} />
         </div>
 
         <div style={{ display: 'flex', gap: '24px', fontSize: '14px' }}>
@@ -275,15 +265,7 @@ export function ThemePreview({ theme }: ThemePreviewProps) {
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div
-              style={{
-                width: '24px',
-                height: '24px',
-                borderRadius: '6px',
-                background: colors.gradient,
-              }}
-            />
-            <span style={{ fontFamily: typography.headingFont, fontWeight: 700 }}>QUSD</span>
+            <img src={theme.logos.dark} alt="QUSD" style={{ height: '24px' }} />
           </div>
           <span style={{ fontSize: '13px', color: colors.text.muted }}>
             © 2025 QUSD Protocol. All rights reserved.

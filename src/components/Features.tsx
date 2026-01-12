@@ -57,12 +57,12 @@ export default function Features() {
           </div>
 
           <div className="max-w-2xl">
-            <h2 className="font-['Space_Mono'] text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a0a0a] leading-tight mb-4">
+            <h2 className="font-['Orbitron'] text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a0a0a] leading-tight mb-4">
               Technical
               <br />
               <span className="relative inline-block">
                 Specifications
-                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] rounded-full" />
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#0052CC] rounded-full" />
               </span>
             </h2>
             <p className="text-[#737373] mt-4">
@@ -81,12 +81,10 @@ export default function Features() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group bg-white p-6 sm:p-8 rounded-2xl border border-[#e5e5e5] hover:border-[#0ECCED]/30 hover:shadow-lg hover:shadow-[#0ECCED]/5 transition-all relative overflow-hidden"
             >
-              {/* Elliptical glow on hover */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-br from-[#0ECCED]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity blur-2xl" />
 
               {/* Code badge */}
               <div className="flex items-center justify-between mb-6 relative">
-                <span className="w-12 h-12 border border-[#e5e5e5] flex items-center justify-center annotation rounded-xl group-hover:border-[#0ECCED] group-hover:bg-gradient-to-r group-hover:from-[#0ECCED] group-hover:to-[#025EC4] group-hover:text-white transition-all">
+                <span className="w-12 h-12 border border-[#e5e5e5] flex items-center justify-center annotation rounded-xl group-hover:border-[#0ECCED] group-hover:bg-[#0052CC] group-hover:text-white transition-all">
                   {feature.code}
                 </span>
                 <span className="annotation text-[#a3a3a3]">{String(index + 1).padStart(2, '0')}/04</span>

@@ -71,8 +71,9 @@ export const colors = {
 
 export const typography = {
   fontFamily: {
+    title: "'Orbitron', sans-serif",
+    body: "'Roboto', sans-serif",
     mono: "'Space Mono', monospace",
-    sans: "'DM Sans', system-ui, sans-serif",
   },
 
   fontSize: {

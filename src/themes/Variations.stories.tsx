@@ -1,16 +1,30 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ThemePreview } from './ThemePreview'
-import { technicalCyan, warmFinance, monochromeMinimal, type ThemeVariation } from './variations'
+import {
+  technicalCyan,
+  warmFinance,
+  monochromeMinimal,
+  editorialSerif,
+  swissClean,
+  humanistWarm,
+  brutalistCode,
+  modernGeometric,
+  type ThemeVariation
+} from './variations'
 
 const ThemeCard = ({ theme, active }: { theme: ThemeVariation; active?: boolean }) => (
   <div
     style={{
       padding: '24px',
       backgroundColor: active ? theme.colors.background.main : '#f5f5f5',
-      borderRadius: '16px',
+      borderRadius: theme.style.borderRadius,
       border: active ? `3px solid ${theme.colors.primary}` : '1px solid #e5e5e5',
     }}
   >
+    {/* Logo */}
+    <div style={{ marginBottom: '16px', height: '32px' }}>
+      <img src={theme.logos.dark} alt={theme.name} style={{ height: '32px' }} />
+    </div>
     {/* Color swatches */}
     <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
       <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: theme.colors.gradient }} />
@@ -20,7 +34,7 @@ const ThemeCard = ({ theme, active }: { theme: ThemeVariation; active?: boolean 
     <h3 style={{ fontFamily: theme.typography.headingFont, fontSize: '18px', fontWeight: 700, marginBottom: '8px' }}>
       {theme.name}
     </h3>
-    <p style={{ fontSize: '13px', color: '#666', lineHeight: 1.5 }}>{theme.description}</p>
+    <p style={{ fontFamily: theme.typography.bodyFont, fontSize: '13px', color: '#666', lineHeight: 1.5 }}>{theme.description}</p>
   </div>
 )
 
@@ -33,8 +47,13 @@ const ComparisonPage = () => (
       Explore different visual directions for the QUSD brand
     </p>
 
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '48px' }}>
-      <ThemeCard theme={technicalCyan} active />
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', marginBottom: '48px' }}>
+      <ThemeCard theme={technicalCyan} />
+      <ThemeCard theme={editorialSerif} active />
+      <ThemeCard theme={swissClean} />
+      <ThemeCard theme={humanistWarm} />
+      <ThemeCard theme={brutalistCode} />
+      <ThemeCard theme={modernGeometric} />
       <ThemeCard theme={warmFinance} />
       <ThemeCard theme={monochromeMinimal} />
     </div>
@@ -80,4 +99,29 @@ export const WarmFinance: StoryObj = {
 export const MonochromeMinimal: StoryObj = {
   name: '3. Monochrome Minimal',
   render: () => <ThemePreview theme={monochromeMinimal} />,
+}
+
+export const EditorialSerif: StoryObj = {
+  name: '4. Editorial Serif',
+  render: () => <ThemePreview theme={editorialSerif} />,
+}
+
+export const SwissClean: StoryObj = {
+  name: '5. Swiss Clean',
+  render: () => <ThemePreview theme={swissClean} />,
+}
+
+export const HumanistWarm: StoryObj = {
+  name: '6. Humanist Warm',
+  render: () => <ThemePreview theme={humanistWarm} />,
+}
+
+export const BrutalistCode: StoryObj = {
+  name: '7. Brutalist Code',
+  render: () => <ThemePreview theme={brutalistCode} />,
+}
+
+export const ModernGeometric: StoryObj = {
+  name: '8. Modern Geometric',
+  render: () => <ThemePreview theme={modernGeometric} />,
 }

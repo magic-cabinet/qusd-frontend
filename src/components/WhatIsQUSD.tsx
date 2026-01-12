@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef, Suspense, lazy } from 'react'
-
-const Rock3D = lazy(() => import('./Rock3D'))
+import { useRef } from 'react'
 
 const specs = [
   { label: 'Token Standard', value: 'ERC-20' },
@@ -54,7 +52,7 @@ export default function WhatIsQUSD() {
                 <motion.div
                   className="w-[90%] h-[90%] rounded-full"
                   style={{
-                    background: 'radial-gradient(ellipse at center, rgba(14, 204, 237, 0.1) 0%, transparent 70%)',
+                    background: 'rgba(14, 204, 237, 0.05)',
                   }}
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -69,39 +67,16 @@ export default function WhatIsQUSD() {
                   transition={{ duration: 0.5, delay: 0.5 }}
                   className="relative"
                 >
-                  {/* 3D Rock Model Container */}
+                  {/* $1 Peg Display */}
                   <div
-                    className="w-48 h-48 sm:w-64 sm:h-64 rounded-full flex items-center justify-center relative overflow-hidden"
+                    className="w-48 h-48 sm:w-64 sm:h-64 rounded-full flex items-center justify-center relative overflow-hidden border-2 border-[#0052CC]"
                     style={{
-                      background: 'radial-gradient(ellipse at center, rgba(14, 204, 237, 0.15) 0%, rgba(2, 94, 196, 0.05) 50%, transparent 70%)',
+                      background: 'rgba(14, 204, 237, 0.08)',
                     }}
                   >
-                    <div
-                      className="absolute inset-0 rounded-full"
-                      style={{
-                        border: '2px solid transparent',
-                        background: 'linear-gradient(#fafaf9, #fafaf9) padding-box, linear-gradient(135deg, #0ECCED, #025EC4) border-box',
-                      }}
-                    />
-                    <div className="w-full h-full relative z-10">
-                      <Suspense fallback={
-                        <div className="w-full h-full flex items-center justify-center">
-                          <div className="font-['Space_Mono'] text-5xl sm:text-7xl font-bold bg-gradient-to-r from-[#0ECCED] to-[#025EC4] bg-clip-text text-transparent">$1</div>
-                        </div>
-                      }>
-                        <Rock3D
-                          variant="floating"
-                          className="w-full h-full"
-                          autoRotate={true}
-                          rotationSpeed={0.2}
-                          showShadow={false}
-                          environmentPreset="city"
-                          interactive={true}
-                        />
-                      </Suspense>
-                    </div>
-                    <div className="absolute bottom-4 left-0 right-0 text-center z-20">
-                      <div className="annotation">USD PEG</div>
+                    <div className="text-center">
+                      <div className="font-['Orbitron'] text-5xl sm:text-7xl font-bold text-[#0052CC]">$1</div>
+                      <div className="annotation mt-2">USD PEG</div>
                     </div>
                   </div>
 
@@ -111,7 +86,7 @@ export default function WhatIsQUSD() {
                     animate={{ rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                   >
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] rounded-full" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#0052CC] rounded-full" />
                   </motion.div>
                   <motion.div
                     className="absolute -inset-12"
@@ -148,12 +123,12 @@ export default function WhatIsQUSD() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:pt-8"
           >
-            <h2 className="font-['Space_Mono'] text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a0a0a] leading-tight mb-6">
+            <h2 className="font-['Orbitron'] text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a0a0a] leading-tight mb-6">
               What is
               <br />
               <span className="relative inline-block mt-2">
                 QUSD
-                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] rounded-full" />
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#0052CC] rounded-full" />
               </span>
               ?
             </h2>
@@ -179,7 +154,7 @@ export default function WhatIsQUSD() {
               {['X402', 'EIP-2612', 'ERC-20', 'DID', 'Multi-Chain'].map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1.5 border border-[#e5e5e5] bg-[#fafaf9] annotation rounded-full hover:border-[#0ECCED] hover:bg-gradient-to-r hover:from-[#0ECCED]/5 hover:to-[#025EC4]/5 transition-all cursor-default"
+                  className="px-3 py-1.5 border border-[#e5e5e5] bg-[#fafaf9] annotation rounded-full hover:border-[#0ECCED] hover:bg-[#0052CC]/5 transition-all cursor-default"
                 >
                   {tag}
                 </span>

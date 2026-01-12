@@ -62,53 +62,48 @@ const CardMinimal = ({ title, description, code }: { title: string; description:
   </div>
 )
 
-// Card Variation 2: Gradient Border
-const CardGradientBorder = ({ title, description, code }: { title: string; description: string; code: string }) => (
+// Card Variation 2: Blue Border
+const CardBlueBorder = ({ title, description, code }: { title: string; description: string; code: string }) => (
   <div style={{
-    padding: '2px',
-    background: `linear-gradient(135deg, ${brand.colors.cyan}, ${brand.colors.royalBlue})`,
+    padding: '32px',
+    backgroundColor: brand.colors.white,
     borderRadius: '24px',
+    border: `2px solid #0052CC`,
     maxWidth: '320px',
   }}>
     <div style={{
-      padding: '30px',
-      backgroundColor: brand.colors.white,
-      borderRadius: '22px',
+      width: '48px',
+      height: '48px',
+      borderRadius: '12px',
+      backgroundColor: '#0052CC',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: brand.fonts.heading,
+      fontSize: '12px',
+      color: brand.colors.white,
+      marginBottom: '20px',
     }}>
-      <div style={{
-        width: '48px',
-        height: '48px',
-        borderRadius: '12px',
-        background: `linear-gradient(135deg, ${brand.colors.cyan}, ${brand.colors.royalBlue})`,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontFamily: brand.fonts.heading,
-        fontSize: '12px',
-        color: brand.colors.white,
-        marginBottom: '20px',
-      }}>
-        {code}
-      </div>
-      <h3 style={{
-        fontFamily: brand.fonts.heading,
-        fontSize: '18px',
-        fontWeight: 700,
-        color: brand.colors.dark,
-        marginBottom: '12px',
-      }}>
-        {title}
-      </h3>
-      <p style={{
-        fontFamily: brand.fonts.body,
-        fontSize: '14px',
-        lineHeight: 1.6,
-        color: '#737373',
-        margin: 0,
-      }}>
-        {description}
-      </p>
+      {code}
     </div>
+    <h3 style={{
+      fontFamily: brand.fonts.heading,
+      fontSize: '18px',
+      fontWeight: 700,
+      color: brand.colors.dark,
+      marginBottom: '12px',
+    }}>
+      {title}
+    </h3>
+    <p style={{
+      fontFamily: brand.fonts.body,
+      fontSize: '14px',
+      lineHeight: 1.6,
+      color: '#737373',
+      margin: 0,
+    }}>
+      {description}
+    </p>
   </div>
 )
 
@@ -125,7 +120,7 @@ const CardDark = ({ title, description, code }: { title: string; description: st
       width: '48px',
       height: '48px',
       borderRadius: '12px',
-      background: `linear-gradient(135deg, ${brand.colors.cyan}, ${brand.colors.royalBlue})`,
+      backgroundColor: '#0052CC',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -157,11 +152,11 @@ const CardDark = ({ title, description, code }: { title: string; description: st
   </div>
 )
 
-// Card Variation 4: Full Gradient
-const CardFullGradient = ({ title, description, code }: { title: string; description: string; code: string }) => (
+// Card Variation 4: Solid Blue
+const CardSolidBlue = ({ title, description, code }: { title: string; description: string; code: string }) => (
   <div style={{
     padding: '32px',
-    background: `linear-gradient(135deg, ${brand.colors.cyan}, ${brand.colors.royalBlue})`,
+    backgroundColor: '#0052CC',
     borderRadius: '24px',
     maxWidth: '320px',
   }}>
@@ -170,6 +165,50 @@ const CardFullGradient = ({ title, description, code }: { title: string; descrip
       height: '48px',
       borderRadius: '12px',
       backgroundColor: 'rgba(255,255,255,0.2)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: brand.fonts.heading,
+      fontSize: '12px',
+      color: brand.colors.white,
+      marginBottom: '20px',
+    }}>
+      {code}
+    </div>
+    <h3 style={{
+      fontFamily: brand.fonts.heading,
+      fontSize: '18px',
+      fontWeight: 700,
+      color: brand.colors.white,
+      marginBottom: '12px',
+    }}>
+      {title}
+    </h3>
+    <p style={{
+      fontFamily: brand.fonts.body,
+      fontSize: '14px',
+      lineHeight: 1.6,
+      color: 'rgba(255,255,255,0.85)',
+      margin: 0,
+    }}>
+      {description}
+    </p>
+  </div>
+)
+
+// Card Variation 4b: Solid Cyan
+const CardSolidCyan = ({ title, description, code }: { title: string; description: string; code: string }) => (
+  <div style={{
+    padding: '32px',
+    backgroundColor: brand.colors.cyan,
+    borderRadius: '24px',
+    maxWidth: '320px',
+  }}>
+    <div style={{
+      width: '48px',
+      height: '48px',
+      borderRadius: '12px',
+      backgroundColor: 'rgba(0,0,0,0.15)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -286,6 +325,96 @@ const CardGlass = ({ title, description, code }: { title: string; description: s
   </div>
 )
 
+// Card Variation 7: Top Accent Bar
+const CardAccentTop = ({ title, description, code }: { title: string; description: string; code: string }) => (
+  <div style={{
+    backgroundColor: brand.colors.white,
+    borderRadius: '24px',
+    border: '1px solid #e5e5e5',
+    maxWidth: '320px',
+    overflow: 'hidden',
+  }}>
+    <div style={{
+      height: '4px',
+      backgroundColor: brand.colors.cyan,
+    }} />
+    <div style={{ padding: '32px' }}>
+      <div style={{
+        fontFamily: brand.fonts.heading,
+        fontSize: '11px',
+        color: brand.colors.cyan,
+        marginBottom: '16px',
+        letterSpacing: '0.1em',
+      }}>
+        {code}
+      </div>
+      <h3 style={{
+        fontFamily: brand.fonts.heading,
+        fontSize: '18px',
+        fontWeight: 700,
+        color: brand.colors.dark,
+        marginBottom: '12px',
+      }}>
+        {title}
+      </h3>
+      <p style={{
+        fontFamily: brand.fonts.body,
+        fontSize: '14px',
+        lineHeight: 1.6,
+        color: '#737373',
+        margin: 0,
+      }}>
+        {description}
+      </p>
+    </div>
+  </div>
+)
+
+// Card Variation 8: Outlined Dark
+const CardOutlinedDark = ({ title, description, code }: { title: string; description: string; code: string }) => (
+  <div style={{
+    padding: '32px',
+    backgroundColor: 'transparent',
+    borderRadius: '24px',
+    border: `2px solid ${brand.colors.cyan}`,
+    maxWidth: '320px',
+  }}>
+    <div style={{
+      width: '48px',
+      height: '48px',
+      borderRadius: '12px',
+      border: `1px solid ${brand.colors.cyan}`,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: brand.fonts.heading,
+      fontSize: '12px',
+      color: brand.colors.cyan,
+      marginBottom: '20px',
+    }}>
+      {code}
+    </div>
+    <h3 style={{
+      fontFamily: brand.fonts.heading,
+      fontSize: '18px',
+      fontWeight: 700,
+      color: brand.colors.white,
+      marginBottom: '12px',
+    }}>
+      {title}
+    </h3>
+    <p style={{
+      fontFamily: brand.fonts.body,
+      fontSize: '14px',
+      lineHeight: 1.6,
+      color: 'rgba(255,255,255,0.6)',
+      margin: 0,
+    }}>
+      {description}
+    </p>
+  </div>
+)
+
 const sampleData = {
   title: 'Gasless Transactions',
   description: 'Users pay with QUSD, facilitators cover gas fees. Zero friction through EIP-2612.',
@@ -315,8 +444,12 @@ const CardVariationsPage = () => (
           <div style={{ fontSize: '12px', color: '#737373', marginTop: '12px', textAlign: 'center' }}>Minimal</div>
         </div>
         <div>
-          <CardGradientBorder {...sampleData} />
-          <div style={{ fontSize: '12px', color: '#737373', marginTop: '12px', textAlign: 'center' }}>Gradient Border</div>
+          <CardBlueBorder {...sampleData} />
+          <div style={{ fontSize: '12px', color: '#737373', marginTop: '12px', textAlign: 'center' }}>Blue Border</div>
+        </div>
+        <div>
+          <CardAccentTop {...sampleData} />
+          <div style={{ fontSize: '12px', color: '#737373', marginTop: '12px', textAlign: 'center' }}>Accent Top</div>
         </div>
       </div>
     </section>
@@ -332,8 +465,12 @@ const CardVariationsPage = () => (
           <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', marginTop: '12px', textAlign: 'center' }}>Dark</div>
         </div>
         <div>
-          <CardFullGradient {...sampleData} />
-          <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', marginTop: '12px', textAlign: 'center' }}>Full Gradient</div>
+          <CardSolidBlue {...sampleData} />
+          <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', marginTop: '12px', textAlign: 'center' }}>Solid Blue</div>
+        </div>
+        <div>
+          <CardSolidCyan {...sampleData} />
+          <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', marginTop: '12px', textAlign: 'center' }}>Solid Cyan</div>
         </div>
         <div>
           <CardNavy {...sampleData} />
@@ -342,6 +479,10 @@ const CardVariationsPage = () => (
         <div>
           <CardGlass {...sampleData} />
           <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', marginTop: '12px', textAlign: 'center' }}>Glass</div>
+        </div>
+        <div>
+          <CardOutlinedDark {...sampleData} />
+          <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)', marginTop: '12px', textAlign: 'center' }}>Outlined</div>
         </div>
       </div>
     </section>

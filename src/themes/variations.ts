@@ -37,6 +37,11 @@ export interface ThemeVariation {
     cardStyle: 'sharp' | 'rounded' | 'pill'
     contrast: 'high' | 'medium' | 'soft'
   }
+  logos: {
+    light: string  // For dark backgrounds
+    dark: string   // For light backgrounds
+    icon: string   // Icon only
+  }
 }
 
 // ============================================
@@ -63,7 +68,7 @@ export const technicalCyan: ThemeVariation = {
       inverse: '#ffffff',
     },
     border: '#e5e5e5',
-    gradient: 'linear-gradient(135deg, #0ECCED 0%, #025EC4 100%)',
+    gradient: '#0052CC',
   },
   typography: {
     headingFont: "'Space Mono', monospace",
@@ -73,6 +78,11 @@ export const technicalCyan: ThemeVariation = {
     borderRadius: '24px',
     cardStyle: 'rounded',
     contrast: 'medium',
+  },
+  logos: {
+    light: '/logos/QUSD_LOGO_0ECCED.svg',
+    dark: '/logos/QUSD_LOGO_030812.svg',
+    icon: '/logos/QUSD_ICON_0ECCED.svg',
   },
 }
 
@@ -100,7 +110,7 @@ export const warmFinance: ThemeVariation = {
       inverse: '#ffffff',
     },
     border: '#E7E5E4',
-    gradient: 'linear-gradient(135deg, #F59E0B 0%, #B45309 100%)',
+    gradient: '#F59E0B',
   },
   typography: {
     headingFont: "'Playfair Display', Georgia, serif",
@@ -110,6 +120,11 @@ export const warmFinance: ThemeVariation = {
     borderRadius: '16px',
     cardStyle: 'rounded',
     contrast: 'soft',
+  },
+  logos: {
+    light: '/logos/QUSD_LOGO_FFFAF1.svg',
+    dark: '/logos/QUSD_LOGO_030812.svg',
+    icon: '/logos/QUSD_ICON_FFFAF1.svg',
   },
 }
 
@@ -137,7 +152,7 @@ export const monochromeMinimal: ThemeVariation = {
       inverse: '#ffffff',
     },
     border: '#E5E7EB',
-    gradient: 'linear-gradient(135deg, #000000 0%, #333333 100%)',
+    gradient: '#000000',
   },
   typography: {
     headingFont: "'Space Grotesk', sans-serif",
@@ -148,6 +163,221 @@ export const monochromeMinimal: ThemeVariation = {
     cardStyle: 'sharp',
     contrast: 'high',
   },
+  logos: {
+    light: '/logos/QUSD_LOGO_FFFAF1.svg',
+    dark: '/logos/QUSD_LOGO_030812.svg',
+    icon: '/logos/QUSD_ICON_BLACK.svg',
+  },
+}
+
+// ============================================
+// VARIATION 4: EDITORIAL SERIF
+// ============================================
+export const editorialSerif: ThemeVariation = {
+  name: 'Editorial Serif',
+  description: 'Sophisticated editorial style. Playfair Display headlines with Lato body. High-end publication feel.',
+  colors: {
+    primary: '#0ECCED',
+    primaryLight: '#00c3ff',
+    secondary: '#025EC4',
+    accent: '#00ff88',
+    success: '#00ff88',
+    background: {
+      main: '#fafaf9',
+      card: '#ffffff',
+      dark: '#030812',
+    },
+    text: {
+      primary: '#0a0a0a',
+      secondary: '#737373',
+      muted: '#a3a3a3',
+      inverse: '#ffffff',
+    },
+    border: '#e5e5e5',
+    gradient: '#0052CC',
+  },
+  typography: {
+    headingFont: "'Playfair Display', Georgia, serif",
+    bodyFont: "'Lato', sans-serif",
+  },
+  style: {
+    borderRadius: '16px',
+    cardStyle: 'rounded',
+    contrast: 'medium',
+  },
+  logos: {
+    light: '/logos/QUSD_LOGO_0ECCED.svg',
+    dark: '/logos/QUSD_LOGO_025EC4.svg',
+    icon: '/logos/QUSD_ICON_025EC4.svg',
+  },
+}
+
+// ============================================
+// VARIATION 5: SWISS CLEAN
+// ============================================
+export const swissClean: ThemeVariation = {
+  name: 'Swiss Clean',
+  description: 'International typographic style. Helvetica-inspired clarity with sharp geometric forms.',
+  colors: {
+    primary: '#0ECCED',
+    primaryLight: '#00c3ff',
+    secondary: '#025EC4',
+    accent: '#00ff88',
+    success: '#00ff88',
+    background: {
+      main: '#fafaf9',
+      card: '#ffffff',
+      dark: '#030812',
+    },
+    text: {
+      primary: '#0a0a0a',
+      secondary: '#737373',
+      muted: '#a3a3a3',
+      inverse: '#ffffff',
+    },
+    border: '#e5e5e5',
+    gradient: '#0052CC',
+  },
+  typography: {
+    headingFont: "'Inter', sans-serif",
+    bodyFont: "'Inter', sans-serif",
+  },
+  style: {
+    borderRadius: '4px',
+    cardStyle: 'sharp',
+    contrast: 'high',
+  },
+  logos: {
+    light: '/logos/QUSD_LOGO_0ECCED.svg',
+    dark: '/logos/QUSD_LOGO_030812.svg',
+    icon: '/logos/QUSD_ICON_030812.svg',
+  },
+}
+
+// ============================================
+// VARIATION 6: HUMANIST WARM
+// ============================================
+export const humanistWarm: ThemeVariation = {
+  name: 'Humanist Warm',
+  description: 'Friendly and approachable. Rounded forms with humanist typefaces. Inviting and trustworthy.',
+  colors: {
+    primary: '#0ECCED',
+    primaryLight: '#00c3ff',
+    secondary: '#025EC4',
+    accent: '#00ff88',
+    success: '#00ff88',
+    background: {
+      main: '#fafaf9',
+      card: '#ffffff',
+      dark: '#030812',
+    },
+    text: {
+      primary: '#0a0a0a',
+      secondary: '#737373',
+      muted: '#a3a3a3',
+      inverse: '#ffffff',
+    },
+    border: '#e5e5e5',
+    gradient: '#0052CC',
+  },
+  typography: {
+    headingFont: "'Source Sans Pro', sans-serif",
+    bodyFont: "'Source Sans Pro', sans-serif",
+  },
+  style: {
+    borderRadius: '32px',
+    cardStyle: 'pill',
+    contrast: 'soft',
+  },
+  logos: {
+    light: '/logos/QUSD_LOGO_0ECCED.svg',
+    dark: '/logos/QUSD_LOGO_025EC4.svg',
+    icon: '/logos/QUSD_ICON_0ECCED.svg',
+  },
+}
+
+// ============================================
+// VARIATION 7: BRUTALIST CODE
+// ============================================
+export const brutalistCode: ThemeVariation = {
+  name: 'Brutalist Code',
+  description: 'Raw developer aesthetic. All monospace, sharp corners, high contrast. Terminal-inspired.',
+  colors: {
+    primary: '#0ECCED',
+    primaryLight: '#00c3ff',
+    secondary: '#025EC4',
+    accent: '#00ff88',
+    success: '#00ff88',
+    background: {
+      main: '#fafaf9',
+      card: '#ffffff',
+      dark: '#030812',
+    },
+    text: {
+      primary: '#0a0a0a',
+      secondary: '#737373',
+      muted: '#a3a3a3',
+      inverse: '#ffffff',
+    },
+    border: '#e5e5e5',
+    gradient: '#0052CC',
+  },
+  typography: {
+    headingFont: "'JetBrains Mono', monospace",
+    bodyFont: "'JetBrains Mono', monospace",
+  },
+  style: {
+    borderRadius: '0px',
+    cardStyle: 'sharp',
+    contrast: 'high',
+  },
+  logos: {
+    light: '/logos/QUSD_LOGO_0ECCED.svg',
+    dark: '/logos/QUSD_LOGO_030812.svg',
+    icon: '/logos/QUSD_ICON_030812.svg',
+  },
+}
+
+// ============================================
+// VARIATION 8: MODERN GEOMETRIC
+// ============================================
+export const modernGeometric: ThemeVariation = {
+  name: 'Modern Geometric',
+  description: 'Contemporary geometric style. Poppins headlines with clean proportions. Bold and confident.',
+  colors: {
+    primary: '#0ECCED',
+    primaryLight: '#00c3ff',
+    secondary: '#025EC4',
+    accent: '#00ff88',
+    success: '#00ff88',
+    background: {
+      main: '#fafaf9',
+      card: '#ffffff',
+      dark: '#030812',
+    },
+    text: {
+      primary: '#0a0a0a',
+      secondary: '#737373',
+      muted: '#a3a3a3',
+      inverse: '#ffffff',
+    },
+    border: '#e5e5e5',
+    gradient: '#0052CC',
+  },
+  typography: {
+    headingFont: "'Poppins', sans-serif",
+    bodyFont: "'Poppins', sans-serif",
+  },
+  style: {
+    borderRadius: '12px',
+    cardStyle: 'rounded',
+    contrast: 'medium',
+  },
+  logos: {
+    light: '/logos/QUSD_LOGO_0ECCED.svg',
+    dark: '/logos/QUSD_LOGO_025EC4.svg',
+    icon: '/logos/QUSD_ICON_025EC4.svg',
+  },
 }
 
 // ============================================
@@ -157,6 +387,11 @@ export const themes = {
   technicalCyan,
   warmFinance,
   monochromeMinimal,
+  editorialSerif,
+  swissClean,
+  humanistWarm,
+  brutalistCode,
+  modernGeometric,
 } as const
 
 export type ThemeName = keyof typeof themes
