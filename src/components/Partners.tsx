@@ -3,12 +3,42 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
 const partners = [
-  { name: 'Ethereum', code: 'ETH', status: 'Active' },
-  { name: 'Base', code: 'BASE', status: 'Active' },
-  { name: 'Solana', code: 'SOL', status: 'Active' },
-  { name: 'Arbitrum', code: 'ARB', status: 'Active' },
-  { name: 'Chainlink', code: 'LINK', status: 'Integrated' },
-  { name: 'Uniswap', code: 'UNI', status: 'Integrated' },
+  {
+    name: 'Ethereum',
+    code: 'ETH',
+    status: 'Active',
+    icon: 'https://cryptologos.cc/logos/ethereum-eth-logo.svg'
+  },
+  {
+    name: 'Base',
+    code: 'BASE',
+    status: 'Active',
+    icon: 'https://avatars.githubusercontent.com/u/108554348?s=200&v=4'
+  },
+  {
+    name: 'Solana',
+    code: 'SOL',
+    status: 'Active',
+    icon: 'https://cryptologos.cc/logos/solana-sol-logo.svg'
+  },
+  {
+    name: 'Arbitrum',
+    code: 'ARB',
+    status: 'Active',
+    icon: 'https://cryptologos.cc/logos/arbitrum-arb-logo.svg'
+  },
+  {
+    name: 'Chainlink',
+    code: 'LINK',
+    status: 'Integrated',
+    icon: 'https://cryptologos.cc/logos/chainlink-link-logo.svg'
+  },
+  {
+    name: 'Uniswap',
+    code: 'UNI',
+    status: 'Integrated',
+    icon: 'https://cryptologos.cc/logos/uniswap-uni-logo.svg'
+  },
 ]
 
 export default function Partners() {
@@ -68,11 +98,13 @@ export default function Partners() {
 
               {/* Partner content */}
               <div className="flex flex-col items-center text-center relative">
-                {/* Code badge */}
-                <div className="w-14 h-14 border border-[#e5e5e5] flex items-center justify-center mb-4 rounded-xl group-hover:border-[#0ECCED] group-hover:bg-gradient-to-r group-hover:from-[#0ECCED] group-hover:to-[#025EC4] transition-all">
-                  <span className="font-['Space_Mono'] font-bold text-sm text-[#0a0a0a] group-hover:text-white transition-colors">
-                    {partner.code}
-                  </span>
+                {/* Icon */}
+                <div className="w-14 h-14 flex items-center justify-center mb-4 rounded-xl overflow-hidden">
+                  <img
+                    src={partner.icon}
+                    alt={partner.name}
+                    className="w-10 h-10 object-contain"
+                  />
                 </div>
 
                 {/* Name */}
