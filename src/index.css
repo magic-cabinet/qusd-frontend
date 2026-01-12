@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-void: #030812;
+  --color-void-light: #0a1628;
+  --color-primary: #043780;
+  --color-primary-light: #0456b8;
+  --color-cyan: #0ECCED;
+  --color-violet: #020766;
+  --color-blue: #025EC4;
+
+  --font-display: 'Orbitron', monospace;
+  --font-body: 'Roboto', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', system-ui, sans-serif;
+  background-color: #030812;
+  color: white;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030812;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #043780;
+  border-radius: 3px;
+}
+
+::selection {
+  background: rgba(14, 204, 237, 0.3);
+}
