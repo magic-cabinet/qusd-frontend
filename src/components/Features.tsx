@@ -115,25 +115,6 @@ export default function Features() {
           ))}
         </div>
 
-        {/* Bottom CTA strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-8 p-4 sm:p-6 rounded-2xl border border-[#e5e5e5] bg-white flex flex-col sm:flex-row items-center justify-between gap-4"
-        >
-          <div className="flex items-center gap-4">
-            <span className="annotation">Full technical documentation available</span>
-          </div>
-          <motion.a
-            href="#"
-            whileHover={{ x: 4 }}
-            className="inline-flex items-center gap-2 font-['Space_Mono'] text-sm text-[#0a0a0a] hover:text-[#0ECCED] transition-colors"
-          >
-            <span>View all specs</span>
-            <span>→</span>
-          </motion.a>
-        </motion.div>
       </div>
     </section>
   )

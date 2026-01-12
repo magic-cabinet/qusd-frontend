@@ -119,39 +119,9 @@ export default function Partners() {
           ))}
         </div>
 
-        {/* Integration CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-8 p-6 sm:p-8 border border-[#e5e5e5] bg-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6"
-        >
-          <div>
-            <h3 className="font-['Space_Mono'] text-xl font-bold text-[#0a0a0a] mb-2">
-              Ready to integrate?
-            </h3>
-            <p className="text-[#737373] text-sm">
-              Join the autonomous economy today.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <motion.a
-              href="#"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0052CC] text-white font-semibold text-sm rounded-full hover:bg-[#003D99] hover:shadow-lg hover:shadow-[#0052CC]/25 transition-all"
-            >
-              <span>View Documentation</span>
-              <span>→</span>
-            </motion.a>
-          </div>
-        </motion.div>
-
         {/* Bottom annotation */}
-        <div className="mt-6 flex items-center justify-between">
+        <div className="mt-6 flex items-center justify-center">
           <span className="annotation text-[#a3a3a3]">6 active integrations</span>
-          <span className="annotation text-[#a3a3a3]">More coming soon</span>
         </div>
       </div>
     </section>

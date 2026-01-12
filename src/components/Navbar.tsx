@@ -60,16 +60,6 @@ export default function Navbar() {
                 <span className="annotation">Mainnet</span>
               </div>
 
-              {/* CTA */}
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-4 sm:px-5 py-2 bg-[#0052CC] text-white font-semibold text-xs sm:text-sm rounded-full hover:bg-[#003D99] hover:shadow-lg hover:shadow-[#0052CC]/25 transition-all"
-              >
-                Launch App →
-              </motion.a>
-
               {/* Hamburger Menu - Mobile */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -135,19 +125,6 @@ export default function Navbar() {
                 ))}
               </div>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="mt-6"
-              >
-                <a
-                  href="#"
-                  className="block w-full p-4 bg-[#0052CC] text-white text-center font-semibold rounded-2xl hover:bg-[#003D99] transition-colors"
-                >
-                  Launch App →
-                </a>
-              </motion.div>
             </div>
           </motion.div>
         )}

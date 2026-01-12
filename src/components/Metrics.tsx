@@ -72,8 +72,7 @@ export default function Metrics() {
               </h2>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-[#00ff88] rounded-full animate-pulse" />
-              <span className="annotation text-[#00ff88]">Live Data</span>
+              <span className="annotation text-[#737373]">Targets</span>
             </div>
           </div>
         </motion.div>
@@ -117,8 +116,7 @@ export default function Metrics() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-6 flex items-center justify-between"
         >
-          <span className="annotation text-[#737373]">Last updated: {new Date().toISOString().split('T')[0]}</span>
-          <span className="annotation text-[#737373]">Source: On-chain analytics</span>
+          <span className="annotation text-[#737373]">Roadmap targets</span>
         </motion.div>
       </div>
     </section>
