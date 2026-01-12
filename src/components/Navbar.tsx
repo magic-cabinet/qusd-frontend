@@ -65,7 +65,7 @@ export default function Navbar() {
                 href="#"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-4 sm:px-5 py-2 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] text-white font-['Space_Mono'] text-xs sm:text-sm tracking-wide rounded-full hover:shadow-lg hover:shadow-[#0ECCED]/25 transition-shadow"
+                className="px-4 sm:px-5 py-2 bg-[#0052CC] text-white font-semibold text-xs sm:text-sm rounded-full hover:bg-[#003D99] hover:shadow-lg hover:shadow-[#0052CC]/25 transition-all"
               >
                 Launch App →
               </motion.a>
@@ -143,7 +143,7 @@ export default function Navbar() {
               >
                 <a
                   href="#"
-                  className="block w-full p-4 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] text-white text-center font-['Space_Mono'] tracking-wide rounded-2xl"
+                  className="block w-full p-4 bg-[#0052CC] text-white text-center font-semibold rounded-2xl hover:bg-[#003D99] transition-colors"
                 >
                   Launch App →
                 </a>

@@ -147,7 +147,7 @@ export default function Hero() {
               href="#"
               whileHover={{ scale: 1.02, x: 4 }}
               whileTap={{ scale: 0.98 }}
-              className="group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] text-white font-['Space_Mono'] text-sm tracking-wide rounded-full hover:shadow-lg hover:shadow-[#0ECCED]/25 transition-shadow"
+              className="group inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-[#0052CC] text-white font-semibold text-sm rounded-full hover:bg-[#003D99] hover:shadow-lg hover:shadow-[#0052CC]/25 transition-all"
             >
               <span>Start Building</span>
               <span className="group-hover:translate-x-1 transition-transform">→</span>

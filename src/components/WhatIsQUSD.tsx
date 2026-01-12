@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, Suspense, lazy } from 'react'
+
+const Rock3D = lazy(() => import('./Rock3D'))
 
 const specs = [
   { label: 'Token Standard', value: 'ERC-20' },
@@ -67,14 +69,11 @@ export default function WhatIsQUSD() {
                   transition={{ duration: 0.5, delay: 0.5 }}
                   className="relative"
                 >
-                  {/* Circular border with gradient */}
+                  {/* 3D Rock Model Container */}
                   <div
-                    className="w-40 h-40 sm:w-56 sm:h-56 rounded-full flex items-center justify-center relative"
+                    className="w-48 h-48 sm:w-64 sm:h-64 rounded-full flex items-center justify-center relative overflow-hidden"
                     style={{
-                      background: 'linear-gradient(135deg, rgba(14, 204, 237, 0.1) 0%, rgba(2, 94, 196, 0.1) 100%)',
-                      border: '2px solid',
-                      borderImageSource: 'linear-gradient(135deg, #0ECCED, #025EC4)',
-                      borderImageSlice: 1,
+                      background: 'radial-gradient(ellipse at center, rgba(14, 204, 237, 0.15) 0%, rgba(2, 94, 196, 0.05) 50%, transparent 70%)',
                     }}
                   >
                     <div
@@ -84,9 +83,25 @@ export default function WhatIsQUSD() {
                         background: 'linear-gradient(#fafaf9, #fafaf9) padding-box, linear-gradient(135deg, #0ECCED, #025EC4) border-box',
                       }}
                     />
-                    <div className="text-center relative z-10">
-                      <div className="font-['Space_Mono'] text-5xl sm:text-7xl font-bold bg-gradient-to-r from-[#0ECCED] to-[#025EC4] bg-clip-text text-transparent">$1</div>
-                      <div className="annotation mt-2">USD PEG</div>
+                    <div className="w-full h-full relative z-10">
+                      <Suspense fallback={
+                        <div className="w-full h-full flex items-center justify-center">
+                          <div className="font-['Space_Mono'] text-5xl sm:text-7xl font-bold bg-gradient-to-r from-[#0ECCED] to-[#025EC4] bg-clip-text text-transparent">$1</div>
+                        </div>
+                      }>
+                        <Rock3D
+                          variant="floating"
+                          className="w-full h-full"
+                          autoRotate={true}
+                          rotationSpeed={0.2}
+                          showShadow={false}
+                          environmentPreset="city"
+                          interactive={true}
+                        />
+                      </Suspense>
+                    </div>
+                    <div className="absolute bottom-4 left-0 right-0 text-center z-20">
+                      <div className="annotation">USD PEG</div>
                     </div>
                   </div>
 

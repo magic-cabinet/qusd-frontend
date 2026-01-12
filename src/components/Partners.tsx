@@ -140,7 +140,7 @@ export default function Partners() {
               href="#"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] text-white font-['Space_Mono'] text-sm rounded-full hover:shadow-lg hover:shadow-[#0ECCED]/25 transition-shadow"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0052CC] text-white font-semibold text-sm rounded-full hover:bg-[#003D99] hover:shadow-lg hover:shadow-[#0052CC]/25 transition-all"
             >
               <span>View Documentation</span>
               <span>→</span>
