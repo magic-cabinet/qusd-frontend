@@ -1,98 +1,75 @@
 import { motion } from 'framer-motion'
 
 const socialLinks = [
-  {
-    name: 'Twitter',
-    href: '#',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Discord',
-    href: '#',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'GitHub',
-    href: '#',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Telegram',
-    href: '#',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-      </svg>
-    ),
-  },
+  { name: 'X', href: '#', label: 'TW' },
+  { name: 'Discord', href: '#', label: 'DC' },
+  { name: 'GitHub', href: '#', label: 'GH' },
+  { name: 'Telegram', href: '#', label: 'TG' },
 ]
 
 const footerLinks = [
   {
     title: 'Product',
+    code: 'P',
     links: ['Features', 'Documentation', 'API Reference', 'Changelog'],
   },
   {
     title: 'Company',
+    code: 'C',
     links: ['About', 'Blog', 'Careers', 'Contact'],
   },
   {
     title: 'Legal',
+    code: 'L',
     links: ['Privacy', 'Terms', 'Security', 'Compliance'],
   },
 ]
 
 export default function Footer() {
   return (
-    <footer className="relative pt-20 pb-10 border-t border-white/10 bg-[#030812]">
-      {/* Background gradient */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full"
-          style={{
-            background: 'radial-gradient(ellipse, rgba(4,55,128,0.2) 0%, transparent 70%)',
-            filter: 'blur(100px)',
-          }}
-        />
-      </div>
+    <footer className="relative pt-16 sm:pt-24 pb-8 border-t border-[#e5e5e5] bg-white overflow-hidden">
+      {/* Dot background */}
+      <div className="absolute inset-0 dot-pattern-light" />
 
-      <div className="max-w-6xl mx-auto px-6 relative">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+      {/* Elliptical glows */}
+      <div className="glow-ellipse glow-cyan w-[400px] h-[250px] -bottom-32 left-1/4 animate-float-slow opacity-15" />
+      <div className="glow-ellipse glow-blue w-[300px] h-[200px] top-20 -right-20 animate-float opacity-10" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        {/* Top annotation bar */}
+        <div className="flex items-center gap-4 mb-12">
+          <span className="annotation">Footer</span>
+          <div className="flex-1 h-px bg-[#e5e5e5]" />
+          <span className="annotation">QUSD Protocol</span>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12 sm:mb-16">
           {/* Brand column */}
-          <div className="lg:col-span-2">
-            <a href="/" className="inline-block mb-6">
+          <div className="col-span-2">
+            {/* Logo */}
+            <div className="mb-6">
               <img
-                src="/assets/qusd-wordmark-white.svg"
+                src="/qusd-logo-lockup-dark.svg"
                 alt="QUSD"
                 className="h-10 w-auto"
               />
-            </a>
-            <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-sm font-[Roboto]">
+            </div>
+
+            <p className="text-[#737373] text-sm leading-relaxed mb-6 max-w-sm">
               Build the first financial layer for the machine economy. Power the pulse of the
               autonomous economy.
             </p>
-            <div className="flex items-center gap-4">
+
+            {/* Social links */}
+            <div className="flex items-center gap-2">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.name}
                   href={social.href}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 rounded-xl border border-white/10 bg-white/[0.02] flex items-center justify-center text-white/50 hover:text-[#0ECCED] hover:border-[#0ECCED]/30 transition-colors"
+                  whileHover={{ y: -2 }}
+                  className="w-10 h-10 border border-[#e5e5e5] flex items-center justify-center annotation rounded-full hover:border-[#0ECCED] hover:bg-gradient-to-r hover:from-[#0ECCED] hover:to-[#025EC4] hover:text-white transition-all"
                 >
-                  {social.icon}
+                  {social.label}
                 </motion.a>
               ))}
             </div>
@@ -101,15 +78,20 @@ export default function Footer() {
           {/* Link columns */}
           {footerLinks.map((column) => (
             <div key={column.title}>
-              <h4 className="font-[Orbitron] font-semibold text-white text-sm uppercase tracking-wider mb-4">
-                {column.title}
-              </h4>
-              <ul className="space-y-3">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-6 h-6 border border-[#e5e5e5] flex items-center justify-center annotation text-[9px] rounded-full">
+                  {column.code}
+                </span>
+                <h4 className="font-['Space_Mono'] font-bold text-sm text-[#0a0a0a]">
+                  {column.title}
+                </h4>
+              </div>
+              <ul className="space-y-2">
                 {column.links.map((link) => (
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-white/50 text-sm hover:text-[#0ECCED] transition-colors font-[Roboto]"
+                      className="text-[#737373] text-sm hover:text-[#0ECCED] transition-colors"
                     >
                       {link}
                     </a>
@@ -121,13 +103,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/40 text-sm font-[Roboto]">
-            &copy; {new Date().getFullYear()} QUSD. All rights reserved.
-          </p>
-          <p className="text-white/40 text-sm font-[Roboto]">
-            Stability in Motion, <span className="text-[#0ECCED]">Automated</span>
-          </p>
+        <div className="pt-6 border-t border-[#e5e5e5]">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="annotation text-[#a3a3a3]">
+              &copy; {new Date().getFullYear()} QUSD Protocol. All rights reserved.
+            </p>
+            <p className="annotation text-[#a3a3a3]">
+              Machine-Native <span className="bg-gradient-to-r from-[#0ECCED] to-[#025EC4] bg-clip-text text-transparent">Stablecoin</span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

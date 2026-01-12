@@ -5,43 +5,27 @@ import { useRef } from 'react'
 const steps = [
   {
     number: '01',
-    title: 'Sign Payment Intent',
+    title: 'Sign Intent',
     description: 'User signs permit + payment intent via MetaMask. No gas required.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-        <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-      </svg>
-    ),
+    technical: 'EIP-2612',
   },
   {
     number: '02',
-    title: 'Submit X-PAYMENT Header',
+    title: 'Submit Header',
     description: 'Frontend sends X-PAYMENT header to resource server with signed proof.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-        <path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-      </svg>
-    ),
+    technical: 'X-PAYMENT',
   },
   {
     number: '03',
     title: 'Verify & Settle',
     description: 'Facilitator verifies signatures and settles payment on-chain.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
+    technical: 'On-Chain',
   },
   {
     number: '04',
     title: 'Access Granted',
     description: 'User granted time-limited access. Recipient claims tokens when ready.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-6 h-6">
-        <path d="M5 13l4 4L19 7" />
-      </svg>
-    ),
+    technical: 'Time-Lock',
   },
 ]
 
@@ -50,97 +34,125 @@ export default function HowItWorks() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section className="py-32 relative" ref={ref}>
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="docs" className="py-20 sm:py-32 relative bg-white" ref={ref}>
+      {/* Dot background */}
+      <div className="absolute inset-0 dot-pattern-light" />
+
+      {/* Elliptical glows */}
+      <div className="glow-ellipse glow-cyan w-[450px] h-[280px] top-40 -left-40 animate-float opacity-15" />
+      <div className="glow-ellipse glow-blue w-[350px] h-[200px] bottom-20 right-1/4 animate-float-slow opacity-10" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="mb-12 sm:mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full border border-cyan/30 bg-cyan/5 text-cyan text-sm font-medium tracking-wide mb-6">
-            X402 Protocol
-          </span>
-          <h2 className="font-[Orbitron] text-4xl md:text-5xl font-bold text-white mb-4 uppercase tracking-tight">
-            How it{' '}
-            <span className="bg-gradient-to-r from-cyan to-blue bg-clip-text text-transparent">
-              Works
-            </span>
-          </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Gasless micropayments for physical hardware and AI services
-          </p>
+          <div className="flex items-center gap-4 mb-8">
+            <span className="annotation">03</span>
+            <div className="flex-1 h-px bg-[#e5e5e5]" />
+            <span className="annotation">Protocol Flow</span>
+          </div>
+
+          <div className="max-w-2xl">
+            <h2 className="font-['Space_Mono'] text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a0a0a] leading-tight mb-4">
+              How it
+              <br />
+              <span className="relative inline-block">
+                Works
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] rounded-full" />
+              </span>
+            </h2>
+            <p className="text-[#737373] mt-4">
+              Gasless micropayments for physical hardware and AI services.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="relative">
-          {/* Connection line */}
-          <div className="hidden md:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan/30 to-transparent" />
+        {/* Process steps */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.number}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              className="relative"
+            >
+              {/* Step card */}
+              <div className="group relative border border-[#e5e5e5] bg-white rounded-2xl hover:border-[#0ECCED]/30 hover:shadow-lg hover:shadow-[#0ECCED]/5 transition-all overflow-hidden">
+                {/* Elliptical glow on hover */}
+                <div className="absolute -top-16 -right-16 w-32 h-32 rounded-full bg-gradient-to-br from-[#0ECCED]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
 
-          <div className="grid md:grid-cols-4 gap-8">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="relative"
-              >
-                {/* Step card */}
-                <div className="relative p-6 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm hover:border-cyan/30 transition-colors group">
-                  {/* Number badge */}
-                  <div className="absolute -top-4 left-6">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan to-blue flex items-center justify-center font-[Orbitron] font-bold text-xs text-void">
+                <div className="relative p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 flex items-center justify-center font-['Space_Mono'] font-bold text-lg rounded-xl bg-[#fafaf9] group-hover:bg-gradient-to-r group-hover:from-[#0ECCED] group-hover:to-[#025EC4] group-hover:text-white transition-all">
                       {step.number}
                     </div>
+                    <span className="annotation text-[#a3a3a3]">{step.technical}</span>
                   </div>
 
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center text-cyan mb-4 mt-2 group-hover:bg-cyan/20 transition-colors">
-                    {step.icon}
-                  </div>
-
-                  <h3 className="font-[Orbitron] text-lg font-bold text-white mb-2 tracking-wide">
+                  <h3 className="font-['Space_Mono'] text-lg font-bold text-[#0a0a0a] mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{step.description}</p>
+                  <p className="text-[#737373] text-sm leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
+              </div>
 
-                {/* Arrow connector */}
-                {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-cyan/30">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                      <path d="M6 3l5 5-5 5" />
-                    </svg>
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
+              {/* Curved connector arrow - only between steps */}
+              {index < steps.length - 1 && (
+                <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 z-10">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M6 3C10 3 13 8 13 8C13 8 10 13 6 13" stroke="#d4d4d4" strokeWidth="1.5" fill="none"/>
+                    <path d="M11 6L13 8L11 10" stroke="#d4d4d4" strokeWidth="1.5" fill="none"/>
+                  </svg>
+                </div>
+              )}
+            </motion.div>
+          ))}
         </div>
 
-        {/* Code snippet preview */}
+        {/* Code snippet */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 p-6 rounded-2xl border border-white/10 bg-void-light/50 backdrop-blur-sm font-mono text-sm overflow-x-auto"
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="mt-12 border border-[#e5e5e5] bg-[#0a0a0a] overflow-hidden rounded-2xl"
         >
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-3 h-3 rounded-full bg-red-500/70" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-            <div className="w-3 h-3 rounded-full bg-green-500/70" />
-            <span className="ml-2 text-white/40 text-xs">x402-payment.ts</span>
+          {/* Terminal header */}
+          <div className="flex items-center justify-between px-4 py-3 border-b border-[#262626]">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+              <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+              <div className="w-3 h-3 rounded-full bg-[#27ca3f]" />
+            </div>
+            <span className="annotation text-[#737373]">x402-payment.ts</span>
+            <div className="w-16" />
           </div>
-          <pre className="text-white/70">
-            <code>
-              <span className="text-cyan">const</span> payment = <span className="text-cyan">await</span> x402.
-              <span className="text-blue">createPayment</span>({'{'}
-              {'\n'}  amount: <span className="text-green-400">"1.00"</span>,
-              {'\n'}  token: <span className="text-green-400">"QUSD"</span>,
-              {'\n'}  recipient: agent.<span className="text-blue">did</span>,
-              {'\n'}{'}'});
-            </code>
-          </pre>
+
+          {/* Code content */}
+          <div className="p-4 sm:p-6 font-['Space_Mono'] text-sm overflow-x-auto">
+            <pre className="text-[#e5e5e5]">
+              <code>
+                <span className="text-[#0ECCED]">const</span> payment = <span className="text-[#0ECCED]">await</span> x402.
+                <span className="text-[#00ff88]">createPayment</span>({'{'}
+                {'\n'}  <span className="text-[#737373]">amount:</span> <span className="text-[#ffbd2e]">"1.00"</span>,
+                {'\n'}  <span className="text-[#737373]">token:</span> <span className="text-[#ffbd2e]">"QUSD"</span>,
+                {'\n'}  <span className="text-[#737373]">recipient:</span> agent.<span className="text-[#00ff88]">did</span>,
+                {'\n'}{'}'});
+              </code>
+            </pre>
+          </div>
+
+          {/* Terminal footer */}
+          <div className="px-4 py-2 border-t border-[#262626] flex items-center gap-2">
+            <span className="text-[#00ff88]">●</span>
+            <span className="annotation text-[#737373]">Ready</span>
+          </div>
         </motion.div>
       </div>
     </section>

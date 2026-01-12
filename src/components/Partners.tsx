@@ -3,12 +3,12 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
 const partners = [
-  { name: 'Ethereum', logo: 'ETH' },
-  { name: 'Base', logo: 'BASE' },
-  { name: 'Solana', logo: 'SOL' },
-  { name: 'Arbitrum', logo: 'ARB' },
-  { name: 'Chainlink', logo: 'LINK' },
-  { name: 'Uniswap', logo: 'UNI' },
+  { name: 'Ethereum', code: 'ETH', status: 'Active' },
+  { name: 'Base', code: 'BASE', status: 'Active' },
+  { name: 'Solana', code: 'SOL', status: 'Active' },
+  { name: 'Arbitrum', code: 'ARB', status: 'Active' },
+  { name: 'Chainlink', code: 'LINK', status: 'Integrated' },
+  { name: 'Uniswap', code: 'UNI', status: 'Integrated' },
 ]
 
 export default function Partners() {
@@ -16,75 +16,111 @@ export default function Partners() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="ecosystem" className="py-32 relative" ref={ref}>
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="ecosystem" className="py-20 sm:py-32 relative bg-[#fafaf9]" ref={ref}>
+      {/* Dot background */}
+      <div className="absolute inset-0 dot-pattern" />
+
+      {/* Elliptical glows */}
+      <div className="glow-ellipse glow-blue w-[450px] h-[280px] top-20 -right-40 animate-float opacity-15" />
+      <div className="glow-ellipse glow-cyan w-[400px] h-[250px] bottom-40 left-1/4 animate-float-slow opacity-10" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="mb-12 sm:mb-16"
         >
-          <h2 className="font-[Orbitron] text-4xl md:text-5xl font-bold text-white mb-4 uppercase tracking-tight">
-            Ecosystem &{' '}
-            <span className="bg-gradient-to-r from-cyan to-blue bg-clip-text text-transparent">
-              Partners
-            </span>
-          </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Integrated with leading blockchain infrastructure
-          </p>
+          <div className="flex items-center gap-4 mb-8">
+            <span className="annotation">05</span>
+            <div className="flex-1 h-px bg-[#e5e5e5]" />
+            <span className="annotation">Network Integrations</span>
+          </div>
+
+          <div className="max-w-2xl">
+            <h2 className="font-['Space_Mono'] text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a0a0a] leading-tight mb-4">
+              Ecosystem &
+              <br />
+              <span className="relative inline-block">
+                Partners
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] rounded-full" />
+              </span>
+            </h2>
+            <p className="text-[#737373] mt-4">
+              Integrated with leading blockchain infrastructure.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        {/* Partners grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {partners.map((partner, index) => (
             <motion.div
-              key={partner.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="group relative aspect-square rounded-2xl border border-white/10 bg-white/[0.02] flex flex-col items-center justify-center gap-3 hover:border-cyan/30 transition-all cursor-pointer"
+              key={partner.code}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="group bg-white p-6 rounded-2xl border border-[#e5e5e5] hover:border-[#0ECCED]/30 hover:shadow-lg hover:shadow-[#0ECCED]/5 transition-all relative overflow-hidden"
             >
-              {/* Hover glow */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-br from-cyan/10 to-transparent" />
+              {/* Elliptical glow on hover */}
+              <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-gradient-to-br from-[#0ECCED]/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
 
-              <div className="relative">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center font-[Orbitron] font-bold text-white/70 group-hover:text-cyan transition-colors">
-                  {partner.logo}
+              {/* Partner content */}
+              <div className="flex flex-col items-center text-center relative">
+                {/* Code badge */}
+                <div className="w-14 h-14 border border-[#e5e5e5] flex items-center justify-center mb-4 rounded-xl group-hover:border-[#0ECCED] group-hover:bg-gradient-to-r group-hover:from-[#0ECCED] group-hover:to-[#025EC4] transition-all">
+                  <span className="font-['Space_Mono'] font-bold text-sm text-[#0a0a0a] group-hover:text-white transition-colors">
+                    {partner.code}
+                  </span>
                 </div>
+
+                {/* Name */}
+                <span className="font-['Space_Mono'] text-sm font-medium text-[#0a0a0a] mb-1">
+                  {partner.name}
+                </span>
+
+                {/* Status */}
+                <span className="annotation text-[10px] text-[#00ff88]">● {partner.status}</span>
               </div>
-              <span className="text-white/50 text-sm font-medium group-hover:text-white/70 transition-colors">
-                {partner.name}
-              </span>
             </motion.div>
           ))}
         </div>
 
-        {/* CTA Section */}
+        {/* Integration CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-20 text-center"
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="mt-8 p-6 sm:p-8 border border-[#e5e5e5] bg-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6"
         >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent">
-            <div className="text-left">
-              <h3 className="font-[Orbitron] text-xl font-bold text-white mb-1">
-                Ready to integrate?
-              </h3>
-              <p className="text-white/50 text-sm">
-                Join the autonomous economy today
-              </p>
-            </div>
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(14,204,237,0.3)' }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-gradient-to-r from-cyan to-blue rounded-full font-[Orbitron] font-semibold text-sm text-void whitespace-nowrap"
+          <div>
+            <h3 className="font-['Space_Mono'] text-xl font-bold text-[#0a0a0a] mb-2">
+              Ready to integrate?
+            </h3>
+            <p className="text-[#737373] text-sm">
+              Join the autonomous economy today.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <motion.a
+              href="#"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] text-white font-['Space_Mono'] text-sm rounded-full hover:shadow-lg hover:shadow-[#0ECCED]/25 transition-shadow"
             >
-              View Documentation
-            </motion.button>
+              <span>View Documentation</span>
+              <span>→</span>
+            </motion.a>
           </div>
         </motion.div>
+
+        {/* Bottom annotation */}
+        <div className="mt-6 flex items-center justify-between">
+          <span className="annotation text-[#a3a3a3]">6 active integrations</span>
+          <span className="annotation text-[#a3a3a3]">More coming soon</span>
+        </div>
       </div>
     </section>
   )

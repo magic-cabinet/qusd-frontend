@@ -4,44 +4,28 @@ import { useRef } from 'react'
 
 const features = [
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
+    code: 'F01',
     title: 'Gasless Transactions',
-    description:
-      'Users pay QUSD tokens, facilitators cover gas. Zero friction for end users with EIP-2612 permit signatures.',
+    description: 'Users pay with QUSD, facilitators cover gas fees. Zero friction through EIP-2612 permit signatures.',
+    specs: ['0 wei gas', 'Permit sigs', 'Meta-tx'],
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-        <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-    title: 'Agent-Native',
-    description:
-      'Built for AI agents, robotics, and IoT. DID-based identity verification at the protocol level for autonomous transactors.',
+    code: 'F02',
+    title: 'Agent-Native Design',
+    description: 'Built for AI agents, robotics, and IoT. DID-based identity verification at the protocol level.',
+    specs: ['DID auth', 'Machine ID', 'Autonomous'],
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-        <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    ),
-    title: 'Programmable Money',
-    description:
-      'Policy engine integration for spending limits, multi-sig requirements, time-locks, and conditional transfers.',
+    code: 'F03',
+    title: 'Programmable Policies',
+    description: 'Spending limits, multi-sig requirements, time-locks, and conditional transfers built-in.',
+    specs: ['Policy engine', 'Multi-sig', 'Time-locks'],
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-        <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-      </svg>
-    ),
+    code: 'F04',
     title: 'Multi-Chain Native',
-    description:
-      'Native deployment across Ethereum, Base, Solana, and Arbitrum. Not bridged — truly cross-chain from day one.',
+    description: 'Native deployment across Ethereum, Base, Solana, and Arbitrum. Not bridged—truly cross-chain.',
+    specs: ['4+ chains', 'Native deploy', 'No bridges'],
   },
 ]
 
@@ -50,61 +34,106 @@ export default function Features() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="features" className="py-32 relative" ref={ref}>
-      {/* Background accent */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] rounded-full opacity-20"
-          style={{
-            background: 'radial-gradient(ellipse, rgba(4,55,128,0.3) 0%, transparent 70%)',
-            filter: 'blur(100px)',
-          }}
-        />
-      </div>
+    <section id="features" className="py-20 sm:py-32 relative bg-[#fafaf9]" ref={ref}>
+      {/* Dot background */}
+      <div className="absolute inset-0 dot-pattern" />
 
-      <div className="max-w-6xl mx-auto px-6 relative">
+      {/* Elliptical glows */}
+      <div className="glow-ellipse glow-cyan w-[500px] h-[300px] top-20 -right-60 animate-float opacity-20" />
+      <div className="glow-ellipse glow-blue w-[400px] h-[250px] bottom-40 -left-40 animate-float-slow opacity-15" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="mb-12 sm:mb-16"
         >
-          <h2 className="font-[Orbitron] text-4xl md:text-5xl font-bold text-white mb-4 uppercase tracking-tight">
-            Built for the{' '}
-            <span className="bg-gradient-to-r from-cyan to-blue bg-clip-text text-transparent">
-              Future
-            </span>
-          </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Infrastructure designed for autonomous economic agents
-          </p>
+          <div className="flex items-center gap-4 mb-8">
+            <span className="annotation">02</span>
+            <div className="flex-1 h-px bg-[#e5e5e5]" />
+            <span className="annotation">Architecture</span>
+          </div>
+
+          <div className="max-w-2xl">
+            <h2 className="font-['Space_Mono'] text-3xl sm:text-4xl md:text-5xl font-bold text-[#0a0a0a] leading-tight mb-4">
+              Technical
+              <br />
+              <span className="relative inline-block">
+                Specifications
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] rounded-full" />
+              </span>
+            </h2>
+            <p className="text-[#737373] mt-4">
+              Core capabilities engineered for the machine economy.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* Features grid */}
+        <div className="grid sm:grid-cols-2 gap-4">
           {features.map((feature, index) => (
             <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
+              key={feature.code}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="group relative p-8 rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm hover:border-cyan/30 transition-all duration-300"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group bg-white p-6 sm:p-8 rounded-2xl border border-[#e5e5e5] hover:border-[#0ECCED]/30 hover:shadow-lg hover:shadow-[#0ECCED]/5 transition-all relative overflow-hidden"
             >
-              {/* Hover glow */}
-              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-cyan/5 to-transparent" />
+              {/* Elliptical glow on hover */}
+              <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-br from-[#0ECCED]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity blur-2xl" />
 
-              <div className="relative">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan/20 to-blue/20 flex items-center justify-center text-cyan mb-6 group-hover:shadow-[0_0_30px_rgba(14,204,237,0.3)] transition-shadow">
-                  {feature.icon}
-                </div>
-                <h3 className="font-[Orbitron] text-xl font-bold text-white mb-3 tracking-wide">
-                  {feature.title}
-                </h3>
-                <p className="text-white/60 leading-relaxed">{feature.description}</p>
+              {/* Code badge */}
+              <div className="flex items-center justify-between mb-6 relative">
+                <span className="w-12 h-12 border border-[#e5e5e5] flex items-center justify-center annotation rounded-xl group-hover:border-[#0ECCED] group-hover:bg-gradient-to-r group-hover:from-[#0ECCED] group-hover:to-[#025EC4] group-hover:text-white transition-all">
+                  {feature.code}
+                </span>
+                <span className="annotation text-[#a3a3a3]">{String(index + 1).padStart(2, '0')}/04</span>
+              </div>
+
+              {/* Content */}
+              <h3 className="font-['Space_Mono'] text-lg sm:text-xl font-bold text-[#0a0a0a] mb-3 relative">
+                {feature.title}
+              </h3>
+              <p className="text-[#737373] text-sm leading-relaxed mb-6 relative">
+                {feature.description}
+              </p>
+
+              {/* Spec tags */}
+              <div className="flex flex-wrap gap-2 relative">
+                {feature.specs.map((spec) => (
+                  <span
+                    key={spec}
+                    className="px-2 py-1 bg-[#fafaf9] border border-[#e5e5e5] annotation text-[9px] rounded-full"
+                  >
+                    {spec}
+                  </span>
+                ))}
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Bottom CTA strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="mt-8 p-4 sm:p-6 rounded-2xl border border-[#e5e5e5] bg-white flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
+          <div className="flex items-center gap-4">
+            <span className="annotation">Full technical documentation available</span>
+          </div>
+          <motion.a
+            href="#"
+            whileHover={{ x: 4 }}
+            className="inline-flex items-center gap-2 font-['Space_Mono'] text-sm text-[#0a0a0a] hover:text-[#0ECCED] transition-colors"
+          >
+            <span>View all specs</span>
+            <span>→</span>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   )

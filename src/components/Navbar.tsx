@@ -1,45 +1,157 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+
+const navItems = [
+  { label: 'Protocol', href: '#about', code: '01' },
+  { label: 'Architecture', href: '#features', code: '02' },
+  { label: 'Network', href: '#ecosystem', code: '03' },
+  { label: 'Docs', href: '#docs', code: '04' },
+]
 
 export default function Navbar() {
-  return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-[#030812]/80 backdrop-blur-md border-b border-white/5"
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo from Figma */}
-        <a href="/" className="flex items-center">
-          <img
-            src="/assets/qusd-wordmark-white.svg"
-            alt="QUSD"
-            className="h-8 w-auto"
-          />
-        </a>
+  const [isOpen, setIsOpen] = useState(false)
 
-        {/* Nav Links */}
-        <div className="hidden md:flex items-center gap-8">
-          {['About', 'Features', 'Ecosystem', 'Docs'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-white/70 hover:text-[#0ECCED] transition-colors font-medium text-sm tracking-wide font-[Roboto]"
-            >
-              {item}
-            </a>
-          ))}
+  return (
+    <>
+      <motion.nav
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="fixed top-0 left-0 right-0 z-50 border-b border-[#e5e5e5] bg-[#fafaf9]/90 backdrop-blur-sm"
+      >
+        {/* Top annotation bar */}
+        <div className="hidden sm:flex items-center justify-between px-6 py-1 border-b border-[#e5e5e5] bg-[#f5f5f4]">
+          <span className="annotation">QUSD Protocol v1.0</span>
+          <span className="annotation">Machine-Native Stablecoin Infrastructure</span>
+          <span className="annotation">Status: Active</span>
         </div>
 
-        {/* CTA */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-6 py-2.5 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] rounded-full font-[Orbitron] font-semibold text-sm text-[#030812] tracking-wide"
-        >
-          Launch App
-        </motion.button>
-      </div>
-    </motion.nav>
+        <div className="px-4 sm:px-6 py-3 sm:py-4">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            {/* Logo */}
+            <a href="/" className="flex items-center">
+              <img
+                src="/qusd-logo-lockup-dark.svg"
+                alt="QUSD"
+                style={{ width: 'auto', height: '44px' }}
+              />
+            </a>
+
+            {/* Nav Links - Desktop */}
+            <div className="hidden md:flex items-center gap-1">
+              {navItems.map((item) => (
+                <a
+                  key={item.code}
+                  href={item.href}
+                  className="group px-4 py-2 flex items-center gap-2 hover:bg-[#0a0a0a] transition-colors duration-200 rounded-full"
+                >
+                  <span className="annotation text-[#a3a3a3] group-hover:text-[#737373]">{item.code}</span>
+                  <span className="text-sm font-medium text-[#0a0a0a] group-hover:text-white transition-colors">
+                    {item.label}
+                  </span>
+                </a>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-3">
+              {/* Status indicator */}
+              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 border border-[#e5e5e5] rounded-full">
+                <div className="w-2 h-2 bg-[#00ff88] rounded-full animate-pulse" />
+                <span className="annotation">Mainnet</span>
+              </div>
+
+              {/* CTA */}
+              <motion.a
+                href="#"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-4 sm:px-5 py-2 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] text-white font-['Space_Mono'] text-xs sm:text-sm tracking-wide rounded-full hover:shadow-lg hover:shadow-[#0ECCED]/25 transition-shadow"
+              >
+                Launch App →
+              </motion.a>
+
+              {/* Hamburger Menu - Mobile */}
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="md:hidden w-10 h-10 border border-[#e5e5e5] flex items-center justify-center rounded-full"
+                aria-label="Toggle menu"
+              >
+                <div className="flex flex-col gap-1">
+                  <motion.span
+                    animate={isOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
+                    className="w-5 h-0.5 bg-[#0a0a0a] block"
+                  />
+                  <motion.span
+                    animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+                    className="w-5 h-0.5 bg-[#0a0a0a] block"
+                  />
+                  <motion.span
+                    animate={isOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
+                    className="w-5 h-0.5 bg-[#0a0a0a] block"
+                  />
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 bg-[#fafaf9] md:hidden"
+            style={{ top: '60px' }}
+          >
+            {/* Dot background */}
+            <div className="absolute inset-0 dot-pattern-light" />
+
+            {/* Elliptical glow */}
+            <div className="glow-ellipse glow-cyan w-64 h-64 top-20 -right-32 animate-float opacity-20" />
+
+            <div className="relative p-6">
+              <div className="space-y-2">
+                {navItems.map((item, index) => (
+                  <motion.a
+                    key={item.code}
+                    href={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-between p-4 border border-[#e5e5e5] rounded-2xl bg-white hover:bg-[#f5f5f4] transition-colors"
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className="w-8 h-8 border border-[#e5e5e5] flex items-center justify-center annotation rounded-full">
+                        {item.code}
+                      </span>
+                      <span className="font-medium text-lg">{item.label}</span>
+                    </div>
+                    <span className="text-[#a3a3a3]">→</span>
+                  </motion.a>
+                ))}
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                className="mt-6"
+              >
+                <a
+                  href="#"
+                  className="block w-full p-4 bg-gradient-to-r from-[#0ECCED] to-[#025EC4] text-white text-center font-['Space_Mono'] tracking-wide rounded-2xl"
+                >
+                  Launch App →
+                </a>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   )
 }
