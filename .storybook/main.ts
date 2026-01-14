@@ -15,6 +15,8 @@ const config: StorybookConfig = {
     '../src/pitch-deck/stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
     // Theme Variations
     '../src/themes/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    // Whitepaper
+    '../src/whitepaper/**/*.stories.@(js|jsx|mjs|ts|tsx)',
     // Page components
     '../src/components/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],

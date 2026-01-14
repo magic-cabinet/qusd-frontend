@@ -1,11 +1,12 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const navItems = [
-  { label: 'Protocol', href: '#about', code: '01' },
-  { label: 'Architecture', href: '#features', code: '02' },
-  { label: 'Network', href: '#ecosystem', code: '03' },
-  { label: 'Docs', href: '#docs', code: '04' },
+  { label: 'Protocol', href: '#about', code: '01', isRoute: false },
+  { label: 'Architecture', href: '#features', code: '02', isRoute: false },
+  { label: 'Whitepaper', href: '/whitepaper', code: '03', isRoute: true },
+  { label: 'Docs', href: '#docs', code: '04', isRoute: false },
 ]
 
 export default function Navbar() {
@@ -29,27 +30,40 @@ export default function Navbar() {
         <div className="px-4 sm:px-6 py-3 sm:py-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             {/* Logo */}
-            <a href="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img
                 src="/qusd-logo-lockup-dark.svg"
                 alt="QUSD"
                 style={{ width: 'auto', height: '44px' }}
               />
-            </a>
+            </Link>
 
             {/* Nav Links - Desktop */}
             <div className="hidden md:flex items-center gap-1">
               {navItems.map((item) => (
-                <a
-                  key={item.code}
-                  href={item.href}
-                  className="group px-4 py-2 flex items-center gap-2 hover:bg-[#0a0a0a] transition-colors duration-200 rounded-full"
-                >
-                  <span className="annotation text-[#a3a3a3] group-hover:text-[#737373]">{item.code}</span>
-                  <span className="text-sm font-medium text-[#0a0a0a] group-hover:text-white transition-colors">
-                    {item.label}
-                  </span>
-                </a>
+                item.isRoute ? (
+                  <Link
+                    key={item.code}
+                    to={item.href}
+                    className="group px-4 py-2 flex items-center gap-2 hover:bg-[#0a0a0a] transition-colors duration-200 rounded-full"
+                  >
+                    <span className="annotation text-[#a3a3a3] group-hover:text-[#737373]">{item.code}</span>
+                    <span className="text-sm font-medium text-[#0a0a0a] group-hover:text-white transition-colors">
+                      {item.label}
+                    </span>
+                  </Link>
+                ) : (
+                  <a
+                    key={item.code}
+                    href={item.href}
+                    className="group px-4 py-2 flex items-center gap-2 hover:bg-[#0a0a0a] transition-colors duration-200 rounded-full"
+                  >
+                    <span className="annotation text-[#a3a3a3] group-hover:text-[#737373]">{item.code}</span>
+                    <span className="text-sm font-medium text-[#0a0a0a] group-hover:text-white transition-colors">
+                      {item.label}
+                    </span>
+                  </a>
+                )
               ))}
             </div>
 
@@ -105,23 +119,46 @@ export default function Navbar() {
             <div className="relative p-6">
               <div className="space-y-2">
                 {navItems.map((item, index) => (
-                  <motion.a
-                    key={item.code}
-                    href={item.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-between p-4 border border-[#e5e5e5] rounded-2xl bg-white hover:bg-[#f5f5f4] transition-colors"
-                  >
-                    <div className="flex items-center gap-4">
-                      <span className="w-8 h-8 border border-[#e5e5e5] flex items-center justify-center annotation rounded-full">
-                        {item.code}
-                      </span>
-                      <span className="font-medium text-lg">{item.label}</span>
-                    </div>
-                    <span className="text-[#a3a3a3]">→</span>
-                  </motion.a>
+                  item.isRoute ? (
+                    <motion.div
+                      key={item.code}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <Link
+                        to={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center justify-between p-4 border border-[#e5e5e5] rounded-2xl bg-white hover:bg-[#f5f5f4] transition-colors"
+                      >
+                        <div className="flex items-center gap-4">
+                          <span className="w-8 h-8 border border-[#e5e5e5] flex items-center justify-center annotation rounded-full">
+                            {item.code}
+                          </span>
+                          <span className="font-medium text-lg">{item.label}</span>
+                        </div>
+                        <span className="text-[#a3a3a3]">→</span>
+                      </Link>
+                    </motion.div>
+                  ) : (
+                    <motion.a
+                      key={item.code}
+                      href={item.href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center justify-between p-4 border border-[#e5e5e5] rounded-2xl bg-white hover:bg-[#f5f5f4] transition-colors"
+                    >
+                      <div className="flex items-center gap-4">
+                        <span className="w-8 h-8 border border-[#e5e5e5] flex items-center justify-center annotation rounded-full">
+                          {item.code}
+                        </span>
+                        <span className="font-medium text-lg">{item.label}</span>
+                      </div>
+                      <span className="text-[#a3a3a3]">→</span>
+                    </motion.a>
+                  )
                 ))}
               </div>
 
