@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { colors, typography, borders, components } from '../tokens'
+import { colors, typography, components } from '../tokens'
 
 export interface TimelineItem {
   year?: string

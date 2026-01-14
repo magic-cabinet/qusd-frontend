@@ -1,5 +1,4 @@
 import { forwardRef } from 'react'
-import { components } from '../tokens'
 
 export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   columns?: 2 | 3 | 4

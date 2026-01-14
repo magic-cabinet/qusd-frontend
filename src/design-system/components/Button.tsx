@@ -1,6 +1,6 @@
 import { motion, type HTMLMotionProps } from 'framer-motion'
 import { forwardRef } from 'react'
-import { colors, typography, components, shadows, transitions } from '../tokens'
+import { colors } from '../tokens'
 
 export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost'
 export type ButtonSize = 'sm' | 'md' | 'lg'
@@ -12,31 +12,6 @@ export interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'size'> {
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
   fullWidth?: boolean
-}
-
-const variantStyles: Record<ButtonVariant, string> = {
-  primary: `
-    bg-gradient-to-r from-[${colors.cyan.DEFAULT}] to-[${colors.blue.DEFAULT}]
-    text-white
-    hover:shadow-lg hover:shadow-[${colors.cyan.DEFAULT}]/25
-  `,
-  secondary: `
-    bg-[${colors.ink}]
-    text-white
-    hover:bg-[${colors.gray[800]}]
-  `,
-  outline: `
-    bg-transparent
-    border border-[${colors.ink}]
-    text-[${colors.ink}]
-    hover:bg-[${colors.ink}]
-    hover:text-white
-  `,
-  ghost: `
-    bg-transparent
-    text-[${colors.ink}]
-    hover:bg-[${colors.gray[100]}]
-  `,
 }
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -95,7 +70,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ) : (
           <>
             {leftIcon && <span className="flex-shrink-0">{leftIcon}</span>}
-            <span>{children}</span>
+            <span>{children as React.ReactNode}</span>
             {rightIcon && <span className="flex-shrink-0">{rightIcon}</span>}
           </>
         )}

@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 // Token allocation data
@@ -59,7 +60,7 @@ const WhitepaperPage = () => (
                   )
                   acc.offset += item.percent
                   return acc
-                }, { elements: [] as JSX.Element[], offset: 0 }).elements}
+                }, { elements: [] as React.JSX.Element[], offset: 0 }).elements}
               </svg>
             </div>
 

@@ -1,6 +1,6 @@
 import { motion, type HTMLMotionProps } from 'framer-motion'
 import { forwardRef } from 'react'
-import { colors, typography } from '../tokens'
+import { colors } from '../tokens'
 
 export type BadgeVariant = 'default' | 'primary' | 'success' | 'warning' | 'outline'
 export type BadgeSize = 'sm' | 'md' | 'lg'
@@ -89,7 +89,7 @@ export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
           />
         )}
         {icon && <span className="flex-shrink-0">{icon}</span>}
-        {children}
+        {children as React.ReactNode}
       </motion.span>
     )
   }

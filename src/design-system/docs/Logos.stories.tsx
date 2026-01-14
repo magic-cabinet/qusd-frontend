@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const logos = {
+const logos: {
+  icons: { name: string; file: string; bg: 'light' | 'dark' }[]
+  horizontal: { name: string; file: string; bg: 'light' | 'dark' }[]
+  vertical: { name: string; file: string; bg: 'light' | 'dark' }[]
+  wordmarks: { name: string; file: string; bg: 'light' | 'dark' }[]
+  lockups: { name: string; file: string; bg: 'light' | 'dark' }[]
+} = {
   icons: [
     { name: 'Icon - Blue', file: '/logos/QUSD_ICON_025EC4.svg', bg: 'light' },
     { name: 'Icon - Cyan', file: '/logos/QUSD_ICON_0ECCED.svg', bg: 'light' },

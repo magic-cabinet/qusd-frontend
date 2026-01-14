@@ -1,6 +1,6 @@
 import { motion, type HTMLMotionProps } from 'framer-motion'
 import { forwardRef, useState } from 'react'
-import { colors, typography, borders, shadows } from '../tokens'
+import { colors, typography, shadows } from '../tokens'
 
 export type InputSize = 'sm' | 'md' | 'lg'
 
@@ -87,7 +87,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               paddingLeft: leftIcon ? '44px' : sizeStyle.padding.split(' ')[1],
               paddingRight: rightIcon ? '44px' : sizeStyle.padding.split(' ')[1],
               fontSize: sizeStyle.fontSize,
-              fontFamily: typography.fontFamily.sans,
+              fontFamily: typography.fontFamily.body,
               backgroundColor: colors.paper,
               border: `1px solid ${colors.gray[200]}`,
               color: colors.ink,

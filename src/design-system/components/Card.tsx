@@ -1,6 +1,6 @@
 import { motion, type HTMLMotionProps } from 'framer-motion'
 import { forwardRef } from 'react'
-import { colors, borders, shadows } from '../tokens'
+import { colors, shadows } from '../tokens'
 
 export type CardVariant = 'default' | 'elevated' | 'outlined' | 'dark'
 export type CardSize = 'sm' | 'md' | 'lg'
@@ -85,7 +85,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
             style={{ background: colors.gradient.glow.cyan }}
           />
         )}
-        <div className="relative">{children}</div>
+        <div className="relative">{children as React.ReactNode}</div>
       </motion.div>
     )
   }

@@ -5,7 +5,6 @@ import { ContentCard } from '../components/ContentCard'
 import { Badge } from '../components/Badge'
 import { Timeline } from '../components/Timeline'
 import { Grid } from '../components/Grid'
-import { BulletList } from '../components/BulletList'
 import { colors, typography } from '../tokens'
 
 // Title Slide

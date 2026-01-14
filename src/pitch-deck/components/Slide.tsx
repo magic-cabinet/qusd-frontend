@@ -109,7 +109,7 @@ export const Slide = forwardRef<HTMLDivElement, SlideProps>(
           style={{
             padding: spacing.slideMargin,
             paddingTop: showHeader ? components.header.height : spacing.slideMargin,
-            paddingBottom: showFooter ? components.footer?.height || '60px' : spacing.slideMargin,
+            paddingBottom: showFooter ? '60px' : spacing.slideMargin,
             height: '100%',
             boxSizing: 'border-box',
           }}

@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 import { colors, typography } from '../tokens'
 
 export type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'body' | 'body-sm' | 'annotation' | 'code'
@@ -7,7 +7,7 @@ export type TextColor = 'default' | 'muted' | 'primary' | 'success' | 'white'
 export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   variant?: TextVariant
   color?: TextColor
-  as?: keyof JSX.IntrinsicElements
+  as?: keyof React.JSX.IntrinsicElements
   gradient?: boolean
 }
 
@@ -46,14 +46,14 @@ const variantConfig: Record<
   body: {
     fontSize: typography.fontSize.base,
     fontWeight: typography.fontWeight.normal,
-    fontFamily: typography.fontFamily.sans,
+    fontFamily: typography.fontFamily.body,
     lineHeight: typography.lineHeight.relaxed,
     letterSpacing: typography.letterSpacing.normal,
   },
   'body-sm': {
     fontSize: typography.fontSize.sm,
     fontWeight: typography.fontWeight.normal,
-    fontFamily: typography.fontFamily.sans,
+    fontFamily: typography.fontFamily.body,
     lineHeight: typography.lineHeight.relaxed,
     letterSpacing: typography.letterSpacing.normal,
   },
@@ -81,7 +81,7 @@ const colorStyles: Record<TextColor, string> = {
   white: 'white',
 }
 
-const defaultTags: Record<TextVariant, keyof JSX.IntrinsicElements> = {
+const defaultTags: Record<TextVariant, keyof React.JSX.IntrinsicElements> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',

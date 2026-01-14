@@ -38,7 +38,7 @@ const TypographyPage = () => (
         <div className="p-6 border border-[#e5e5e5] rounded-2xl">
           <h3 className="font-['Space_Mono'] text-lg font-bold mb-2">DM Sans</h3>
           <p className="text-sm text-[#737373] mb-4">Body text, descriptions, UI labels</p>
-          <div style={{ fontFamily: typography.fontFamily.sans }}>
+          <div style={{ fontFamily: typography.fontFamily.body }}>
             <div className="text-3xl font-bold mb-2">Bold 700</div>
             <div className="text-2xl">Regular 400</div>
           </div>
@@ -70,7 +70,7 @@ const TypographyPage = () => (
         <div>
           <span className="annotation mb-2 block">Body Text</span>
           <p style={{
-            fontFamily: typography.fontFamily.sans,
+            fontFamily: typography.fontFamily.body,
             fontSize: typography.fontSize.md,
             lineHeight: typography.lineHeight.relaxed,
             color: '#737373',

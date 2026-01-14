@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { colors } from '../tokens'
 
 const IntroductionPage = () => (
   <div className="p-6 max-w-4xl">
