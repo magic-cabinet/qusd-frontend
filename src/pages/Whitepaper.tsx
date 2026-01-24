@@ -349,19 +349,20 @@ export default function Whitepaper() {
               <span className="font-['Space_Mono'] text-[10px] text-[#a3a3a3]">AGENT ECONOMY INFRASTRUCTURE</span>
             </div>
 
-            {/* Horizontal flow diagram */}
-            <div className="flex items-center justify-between gap-2 mb-4 overflow-x-auto pb-2">
+            {/* Horizontal flow diagram - scrollable on mobile */}
+            <div className="flex items-center gap-1 mb-4 overflow-x-auto pb-2 -mx-2 px-2 snap-x snap-mandatory">
               {[
                 { name: 'NANDA', desc: 'Discovery', color: '#0052CC' },
                 { name: 'MCP', desc: 'Tools', color: '#0ECCED' },
                 { name: 'A2A', desc: 'Comms', color: '#025EC4' },
                 { name: 'UCP', desc: 'Commerce', color: '#00c3ff' },
                 { name: 'AP2', desc: 'Payments', color: '#043780' },
+                { name: 'QROS', desc: 'Robotics', color: '#FF9500' },
                 { name: 'QUSD', desc: 'Settlement', color: '#0052CC', highlight: true },
               ].map((p, i, arr) => (
-                <div key={p.name} className="flex items-center">
+                <div key={p.name} className="flex items-center flex-shrink-0 snap-center">
                   <motion.div
-                    className={`px-3 py-2 rounded-lg border-2 text-center min-w-[70px] ${
+                    className={`px-2 py-2 rounded-lg border-2 text-center min-w-[56px] ${
                       p.highlight
                         ? 'bg-[#0052CC] border-[#0052CC]'
                         : 'bg-white'
@@ -372,51 +373,44 @@ export default function Whitepaper() {
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
                   >
-                    <div className={`font-['Orbitron'] text-xs font-bold ${p.highlight ? 'text-white' : ''}`} style={{ color: p.highlight ? 'white' : p.color }}>
+                    <div className={`font-['Orbitron'] text-[10px] sm:text-xs font-bold ${p.highlight ? 'text-white' : ''}`} style={{ color: p.highlight ? 'white' : p.color }}>
                       {p.name}
                     </div>
-                    <div className={`text-[9px] ${p.highlight ? 'text-white/70' : 'text-[#a3a3a3]'}`}>{p.desc}</div>
+                    <div className={`text-[8px] sm:text-[9px] ${p.highlight ? 'text-white/70' : 'text-[#a3a3a3]'}`}>{p.desc}</div>
                   </motion.div>
                   {i < arr.length - 1 && (
-                    <motion.div
-                      className="mx-1 text-[#e5e5e5]"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.05 + 0.1 }}
-                    >
-                      →
-                    </motion.div>
+                    <span className="mx-0.5 text-[#d4d4d4] text-sm">→</span>
                   )}
                 </div>
               ))}
             </div>
 
             {/* Protocol details grid */}
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {[
                 { name: 'NANDA', full: 'Networked Agents & Decentralized AI', desc: 'Global discovery & identity' },
                 { name: 'MCP', full: 'Model Context Protocol', desc: 'Agent-to-tool integration' },
                 { name: 'A2A', full: 'Agent2Agent Protocol', desc: 'Horizontal communication' },
                 { name: 'UCP', full: 'Universal Commerce Protocol', desc: 'Full commerce journey' },
                 { name: 'AP2', full: 'Agent Payments Protocol', desc: 'Payment mandates' },
+                { name: 'QROS', full: 'QUSD Robot Operating System', desc: 'ROS 2 integration', robotics: true },
                 { name: 'QUSD', full: 'Settlement Layer', desc: 'Programmable stablecoin', highlight: true },
               ].map((protocol, i) => (
                 <motion.div
                   key={protocol.name}
-                  className={`p-2 rounded-lg ${protocol.highlight ? 'bg-[#0052CC]' : 'bg-[#fafaf9]'}`}
+                  className={`p-2 rounded-lg ${protocol.highlight ? 'bg-[#0052CC]' : protocol.robotics ? 'bg-[#FF9500]' : 'bg-[#fafaf9]'}`}
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.03 }}
                 >
-                  <div className={`font-['Orbitron'] text-[10px] font-bold ${protocol.highlight ? 'text-white' : 'text-[#0052CC]'}`}>
+                  <div className={`font-['Orbitron'] text-[10px] font-bold ${protocol.highlight || protocol.robotics ? 'text-white' : 'text-[#0052CC]'}`}>
                     {protocol.name}
                   </div>
-                  <div className={`text-[9px] ${protocol.highlight ? 'text-white/70' : 'text-[#a3a3a3]'}`}>
+                  <div className={`text-[9px] ${protocol.highlight || protocol.robotics ? 'text-white/70' : 'text-[#a3a3a3]'}`}>
                     {protocol.full}
                   </div>
-                  <div className={`text-[10px] mt-0.5 ${protocol.highlight ? 'text-white/90' : 'text-[#737373]'}`}>
+                  <div className={`text-[10px] mt-0.5 ${protocol.highlight || protocol.robotics ? 'text-white/90' : 'text-[#737373]'}`}>
                     {protocol.desc}
                   </div>
                 </motion.div>

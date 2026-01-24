@@ -17,6 +17,8 @@ const config: StorybookConfig = {
     '../src/themes/**/*.stories.@(js|jsx|mjs|ts|tsx)',
     // Whitepaper
     '../src/whitepaper/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    // GSAP
+    '../src/gsap/**/*.stories.@(js|jsx|mjs|ts|tsx)',
     // Page components
     '../src/components/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],

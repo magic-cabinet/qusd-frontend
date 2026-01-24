@@ -12,7 +12,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "framer-motion": "^12.25.0",
+    "gsap": "^3.14.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.12.0"
