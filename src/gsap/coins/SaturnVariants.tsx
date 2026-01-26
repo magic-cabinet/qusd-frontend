@@ -67,17 +67,17 @@ function GlowParticle({
     <group>
       {/* Inner aura - semi-transparent, no solid core */}
       <mesh position={position}>
-        <sphereGeometry args={[size * 1.5, 8, 8]} />
+        <sphereGeometry args={[size * 1.5, 24, 24]} />
         <meshBasicMaterial color={color} transparent opacity={0.35} depthWrite={false} />
       </mesh>
       {/* Middle aura */}
       <mesh position={position}>
-        <sphereGeometry args={[size * 4, 8, 8]} />
+        <sphereGeometry args={[size * 4, 24, 24]} />
         <meshBasicMaterial color={color} transparent opacity={0.12} depthWrite={false} />
       </mesh>
       {/* Outer aura - large soft glow */}
       <mesh position={position}>
-        <sphereGeometry args={[size * 7, 6, 6]} />
+        <sphereGeometry args={[size * 7, 24, 24]} />
         <meshBasicMaterial color={color} transparent opacity={0.05} depthWrite={false} />
       </mesh>
       {/* Trail - also transparent only */}
@@ -90,7 +90,7 @@ function GlowParticle({
             position[1] * (1 - offset),
             position[2] * (1 - offset)
           ]}>
-            <sphereGeometry args={[size * fade * 2, 8, 8]} />
+            <sphereGeometry args={[size * fade * 2, 16, 16]} />
             <meshBasicMaterial color={color} transparent opacity={fade * 0.2} depthWrite={false} />
           </mesh>
         )
@@ -300,7 +300,7 @@ export function CameraSubstrate({
         const drift = Math.sin(progress * Math.PI * 2 * dust.speed + i) * 0.5
         return (
           <mesh key={i} position={[dust.x + drift, dust.y + drift * 0.3, dust.z]}>
-            <sphereGeometry args={[dust.size, 6, 6]} />
+            <sphereGeometry args={[dust.size, 16, 16]} />
             <meshBasicMaterial
               color="#FFFFFF"
               transparent

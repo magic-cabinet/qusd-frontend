@@ -130,7 +130,7 @@ function SmokeParticles({ progress, count = 30, color = '#888888' }: {
 
         return (
           <mesh key={i} position={[p.x + drift, p.y + drift * 0.5, p.z]}>
-            <sphereGeometry args={[p.size, 8, 8]} />
+            <sphereGeometry args={[p.size, 16, 16]} />
             <meshBasicMaterial
               color={color}
               transparent
@@ -251,7 +251,7 @@ function TrailingParticle({
         const offset = (t + 1) * 0.15
         return (
           <mesh key={t} position={[position[0] * (1 - offset * 0.1), position[1] * (1 - offset * 0.1), position[2] * (1 - offset * 0.1)]}>
-            <sphereGeometry args={[trailSize, 8, 8]} />
+            <sphereGeometry args={[trailSize, 16, 16]} />
             <meshStandardMaterial
               color={color}
               transparent

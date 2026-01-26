@@ -72,17 +72,17 @@ function GlowParticle({ position, color, size = 0.06 }: {
     <group>
       {/* Inner aura - very transparent */}
       <mesh position={position}>
-        <sphereGeometry args={[size * 1.5, 8, 8]} />
+        <sphereGeometry args={[size * 1.5, 24, 24]} />
         <meshBasicMaterial color={color} transparent opacity={0.35} depthWrite={false} />
       </mesh>
       {/* Large outer aura */}
       <mesh position={position}>
-        <sphereGeometry args={[size * 4, 8, 8]} />
+        <sphereGeometry args={[size * 4, 24, 24]} />
         <meshBasicMaterial color={color} transparent opacity={0.12} depthWrite={false} />
       </mesh>
       {/* Extra large soft glow */}
       <mesh position={position}>
-        <sphereGeometry args={[size * 7, 6, 6]} />
+        <sphereGeometry args={[size * 7, 24, 24]} />
         <meshBasicMaterial color={color} transparent opacity={0.05} depthWrite={false} />
       </mesh>
     </group>
@@ -149,7 +149,7 @@ function CameraFilter({
         const drift = Math.sin(progress * Math.PI * 2 * d.speed + i) * 0.4
         return (
           <mesh key={i} position={[d.x + drift, d.y + drift * 0.2, d.z]}>
-            <sphereGeometry args={[d.size, 6, 6]} />
+            <sphereGeometry args={[d.size, 16, 16]} />
             <meshBasicMaterial color="#FFFFFF" transparent opacity={0.25 + peak * 0.15} />
           </mesh>
         )

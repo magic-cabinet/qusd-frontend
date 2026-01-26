@@ -64,7 +64,7 @@ function TrailingParticle({
       </mesh>
       {/* Outer glow */}
       <mesh position={position}>
-        <sphereGeometry args={[size * 1.8, 12, 12]} />
+        <sphereGeometry args={[size * 1.8, 24, 24]} />
         <meshBasicMaterial
           color={color}
           transparent
@@ -78,7 +78,7 @@ function TrailingParticle({
         const trailSize = size * fade * 0.7
         return (
           <mesh key={t} position={pos}>
-            <sphereGeometry args={[trailSize, 8, 8]} />
+            <sphereGeometry args={[trailSize, 16, 16]} />
             <meshStandardMaterial
               color={color}
               transparent
@@ -845,7 +845,7 @@ export function ScrollGalaxyChaosDive() {
           <group key={i}>
             {/* Core */}
             <mesh position={[x, y, z]}>
-              <sphereGeometry args={[dustSize, 8, 8]} />
+              <sphereGeometry args={[dustSize, 16, 16]} />
               <meshStandardMaterial
                 color={color}
                 transparent
@@ -857,7 +857,7 @@ export function ScrollGalaxyChaosDive() {
             </mesh>
             {/* Glow */}
             <mesh position={[x, y, z]}>
-              <sphereGeometry args={[dustSize * 2.5, 8, 8]} />
+              <sphereGeometry args={[dustSize * 2.5, 16, 16]} />
               <meshBasicMaterial
                 color={color}
                 transparent
