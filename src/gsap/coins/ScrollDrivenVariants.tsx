@@ -1,6 +1,5 @@
 import { useRef, useEffect, useMemo, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import * as THREE from 'three'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { colors, typography } from '../../design-system/tokens'
@@ -327,8 +326,6 @@ function StarburstOrbit({ progress, count = 16, maxRadius = 4, color = colors.cy
 
         // Attractor pulls back toward center
         ;[x, y, z] = applyAttractor(x, y, z, 0, 0, 0, attractorPulse)
-
-        const emissiveIntensity = 0.8 * (1 - radius / maxRadius)
 
         return (
           <TrailingParticle
@@ -781,8 +778,6 @@ function GalaxyChaosCamera({ progress }: { progress: number }) {
 
   useFrame(() => {
     // Dramatic sweep through the galaxy
-    const phase = progress * Math.PI * 2
-
     // Spiral inward then outward
     const spiralRadius = 4 + Math.sin(progress * Math.PI) * 3
     const height = Math.cos(progress * Math.PI * 3) * 4 + 2

@@ -197,7 +197,11 @@ function LogoCoin({ rotationY = 0, rotationX = 0, coinScale = 1, showParticles =
 }
 
 // === CANVAS WRAPPER ===
-function CoinCanvas({ children, cameraPosition = [0, 0, 8] as [number, number, number], showControls = false }) {
+function CoinCanvas({ children, cameraPosition = [0, 0, 8] as [number, number, number], showControls = false }: {
+  children: React.ReactNode
+  cameraPosition?: [number, number, number]
+  showControls?: boolean
+}) {
   return (
     <div style={{ width: '100%', height: '100%', background: colors.ink }}>
       <Canvas camera={{ position: cameraPosition, fov: 50 }}>

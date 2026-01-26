@@ -57,13 +57,11 @@ function GlowParticle({
   color,
   size = 0.08,
   trailLength = 5,
-  emissive = 3
 }: {
   position: [number, number, number]
   color: string
   size?: number
   trailLength?: number
-  emissive?: number
 }) {
   return (
     <group>
@@ -156,7 +154,6 @@ function SaturnRings({ progress, ringCount = 5, baseRadius = 2.5, tilt = 0.4 }: 
                   color={color}
                   size={0.045 + ring * 0.008}
                   trailLength={4}
-                  emissive={3.5}
                 />
               )
             })}
@@ -181,7 +178,6 @@ function SaturnCamera({ progress, mode = 'orbit' }: { progress: number; mode?: '
       camera.lookAt(0, 0, 0)
     } else if (mode === 'dive') {
       // Dive through rings
-      const diveProgress = progress * 2
       const wobbleX = Math.sin(progress * Math.PI * 6) * 1.5
       const wobbleZ = Math.cos(progress * Math.PI * 5) * 1.5
       camera.position.set(wobbleX, 6 - progress * 10, 8 + wobbleZ - progress * 6)
@@ -227,7 +223,7 @@ function SpaceFog({ density = 0.02, color = '#0a0a1e' }: { density?: number; col
 
 // === CAMERA SUBSTRATE / CONE FILTER ===
 // A filter that follows the camera and applies effects to the field of view
-function CameraSubstrate({
+export function CameraSubstrate({
   progress,
   tint = '#0ECCED',
   intensity = 0.1,
@@ -568,7 +564,6 @@ export function SaturnStorm() {
                 position={[x, y, z]}
                 color={p.color}
                 size={p.size}
-                emissive={4}
               />
             )
           })}

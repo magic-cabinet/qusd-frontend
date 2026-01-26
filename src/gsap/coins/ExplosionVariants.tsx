@@ -1,5 +1,5 @@
 import { useRef, useEffect, useMemo, useState } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Canvas, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -9,10 +9,8 @@ import { CoinMesh, FrameIndicator } from './ScrollDrivenCoin'
 gsap.registerPlugin(ScrollTrigger)
 
 // === ATMOSPHERIC FOG COMPONENT ===
-function AtmosphericFog({ color = '#1a1a2e', near = 5, far = 25, density = 0.02 }: {
+function AtmosphericFog({ color = '#1a1a2e', density = 0.02 }: {
   color?: string
-  near?: number
-  far?: number
   density?: number
 }) {
   const { scene } = useThree()
@@ -114,7 +112,7 @@ function SmokeParticles({ progress, count = 30, color = '#888888' }: {
   color?: string
 }) {
   const particles = useMemo(() => {
-    return Array.from({ length: count }).map((_, i) => ({
+    return Array.from({ length: count }).map(() => ({
       x: (Math.random() - 0.5) * 20,
       y: (Math.random() - 0.5) * 15,
       z: (Math.random() - 0.5) * 10 - 5,
@@ -147,10 +145,9 @@ function SmokeParticles({ progress, count = 30, color = '#888888' }: {
 }
 
 // === CAMERA FILTER OVERLAY ===
-function CameraFilter({ progress, tint = '#1a1a2e', vignetteStrength = 0.3 }: {
+function CameraFilter({ progress, tint = '#1a1a2e' }: {
   progress: number
   tint?: string
-  vignetteStrength?: number
 }) {
   // This creates a subtle color grade/tint effect
   // The "moment of clarity" gets brighter
@@ -957,7 +954,7 @@ export function ExplosionMomentOfClarity() {
           ))}
 
           {/* Camera filter in 3D space */}
-          <CameraFilter progress={progress} tint="#1a1a2e" vignetteStrength={0.3} />
+          <CameraFilter progress={progress} tint="#1a1a2e" />
 
           <group rotation={[0.1, progress * Math.PI * 3, 0]} scale={0.8 + clarityMoment * 0.4}>
             <CoinMesh />
