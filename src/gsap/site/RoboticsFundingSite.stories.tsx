@@ -15,7 +15,7 @@ A full-page scroll experience combining Saturn Sweep 3D animations with compelli
 ## Features
 - **Saturn Sweep Camera** - Sweeping camera through orbital rings
 - **Scroll-driven Sections** - Content fades in/out as you scroll
-- **Milestone Funding** - Like Kickstarter but decentralized
+- **Milestone Funding** - Decentralized goal-based funding
 - **Partner Network** - Building the future together
 
 ## Messaging Themes

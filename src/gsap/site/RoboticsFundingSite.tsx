@@ -244,7 +244,7 @@ function FundingSection({ progress }: { progress: number }) {
           maxWidth: 600,
           lineHeight: 1.6,
         }}>
-          Like crowdfunding, but built for the decentralized future.
+          Built for the decentralized future.
           Set milestones, track progress, and watch your robotics vision come to life.
         </p>
       </div>
@@ -408,7 +408,7 @@ function CTASection({ progress }: { progress: number }) {
         textAlign: 'center',
         marginBottom: 24,
       }}>
-        Kickstart the Future
+        Ignite the Future
       </h2>
       <p style={{
         fontFamily: typography.fontFamily.body,
