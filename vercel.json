@@ -1,7 +1,10 @@
 {
   "buildCommand": "bun run build",
   "installCommand": "bun install",
+  "trailingSlash": false,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/whitepaper", "destination": "/index.html" },
+    { "source": "/docs", "destination": "/index.html" },
+    { "source": "/docs/:path*", "destination": "/index.html" }
   ]
 }
